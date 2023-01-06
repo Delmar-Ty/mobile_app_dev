@@ -8,6 +8,7 @@ import StudentSignupScreen from './StudentSignup.js';
 import ParentSignupScreen from './ParentSignup.js';
 import TeacherSignupScreen from './TeacherSignup.js';
 import StudentSignupScreen2 from './StudentSignup2.js';
+import DashboardScreen from './Dashboard.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -60,6 +61,13 @@ const App = () => (
             <Stack.Screen 
             name = "TeacherSignup"
             component = {TeacherSignupScreen}
+            options ={{
+              headerShown: false
+            }}/>
+
+            <Stack.Screen 
+            name = "Dashboard"
+            component = {DashboardScreen}
             options ={{
               headerShown: false
             }}/>

@@ -8,7 +8,7 @@ const StudentSignupScreen2 = ({navigation}) => (
     <View style={styles.container}>
         <ImageBackground source={bgImage} style={styles.image}>
         <View style = {styles.buttonStyle}>
-        <Text title='Sign Up' style = {styles.returnbutton} onPress={() => navigation.navigate('Signup', {name: 'Signup'})}>Back</Text>
+        <Text title='Sign Up' style = {styles.returnbutton} onPress={() => navigation.navigate('StudentSignup', {name: 'StudentSignup'})}>Back</Text>
             </View>
         <View style = {styles.form}>
             <View style = {styles.formquestions}>
@@ -21,7 +21,7 @@ const StudentSignupScreen2 = ({navigation}) => (
             </View>
         </View>
         <View style = {styles.nextStyle}>
-          <Text style = {styles.next}>Submit</Text>
+          <Text style = {styles.next} onPress={() => navigation.navigate('Login', {name: 'Login'})}>Submit</Text>
         </View>
         </ImageBackground>
     </View>

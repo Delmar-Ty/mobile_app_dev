@@ -1,32 +1,39 @@
 import { StyleSheet, Text, View, ImageBackground, Image, Button, Pressable } from 'react-native';
 import React from 'react';
-import { useState } from 'react';
 import bgImage from './assets/home-orange-gradient.png'
 import logoImage from './assets/west-mec-logo.png'
 
 
 const HomeScreen = ({navigation}) => ( 
     <View style={styles.container}>
-        <ImageBackground source={bgImage} style={styles.image}>
-          <View style={styles.logoContainer}>
-            <Image source = {logoImage} style = {styles.logo}></Image>
+        <ImageBackground source={bgImage} style={bgStyle.image}>
+
+          {/*Logo*/}
+          <View style={logoStyle.logoContainer}>
+            <Image source = {logoImage} style = {logoStyle.logo}></Image>
           </View>
+
           <View style = {styles.buttonContainer}>
-            <View style={ButtonStyle.body}>
-                <Pressable style={ButtonStyle.button} onPress={() => navigation.navigate('Login', {name: 'Login'})}>
-                    <Text style={ButtonStyle.text}>
+            
+            {/*Login Button*/}
+            <View style={buttonStyle.body}>
+                <Pressable style={buttonStyle.button} onPress={() => navigation.navigate('Login', {name: 'Login'})}>
+                    <Text style={buttonStyle.text}>
                         Log In
                     </Text>
                 </Pressable>
             </View>
 
-            <View style={ButtonStyle.body}>
-                <Pressable style={ButtonStyle.button} onPress={() => navigation.navigate('Signup', {name: 'Signup'})}>
-                    <Text style={ButtonStyle.text}>
+            {/*Sign Up Button*/}
+            <View style={buttonStyle.body}>
+                <Pressable style={buttonStyle.button} onPress={() => navigation.navigate('Signup', {name: 'Signup'})}>
+                    <Text style={buttonStyle.text}>
                         Sign Up
                     </Text>
                 </Pressable>
             </View>
+
+            {/*Licensing Terms & Conditions*/}
             <Text style = {styles.licensinginfo}>Licensing Terms & Conditions</Text>
           </View>
         </ImageBackground>
@@ -40,21 +47,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  image: {
-    width: '100%',
-    height: '100%'
-  },
-//west-mec logo
-  logoContainer: {
-    width: '100%',
-    height: '50%',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  logo: {
-    height: '100%',
-    aspectRatio: 1/1
-  },
 //container for the sign up and log in buttons
   buttonContainer: {
     width: '100%',
@@ -62,7 +54,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-//log in/sign up button styling
 //link to go to license info style
   licensinginfo: {
     textDecorationLine: 'underline',
@@ -71,7 +62,8 @@ const styles = StyleSheet.create({
   }
 });
 
-const ButtonStyle = StyleSheet.create({
+const buttonStyle = StyleSheet.create({
+  //log in/sign up button styling
     body: {
         width: '75%',
         height: '20%',
@@ -94,6 +86,26 @@ const ButtonStyle = StyleSheet.create({
     }
 });
 
+const bgStyle = StyleSheet.create({
+  //Background Image
+  image: {
+    width: '100%',
+    height: '100%'
+  }
+});
 
+const logoStyle = StyleSheet.create({
+  //west-mec logo
+  logoContainer: {
+    width: '100%',
+    height: '50%',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  logo: {
+    height: '100%',
+    aspectRatio: 1/1
+  }
+});
 
 export default HomeScreen;
