@@ -1,9 +1,20 @@
 import { StyleSheet, Text, View, ImageBackground, Button, TextInput, Pressable } from 'react-native';
 import React from 'react';
+import { useState } from 'react';
 import bgImage from './assets/home-orange-gradient.png'
+import { text } from '@fortawesome/fontawesome-svg-core';
 
 
-const LoginScreen = ({navigation}) => ( 
+const LoginScreen = ({navigation}) => {
+  const [emailAuth, setEmailAuth] = useState(false);
+  const [passAuth, setPassAuth] = useState(false);
+
+  const creds = {
+    email: 'example@gmail.com',
+    pass: 'password'
+  }
+
+  return ( 
     <View style={styles.container}>
         <ImageBackground source={bgImage} style={bgStyle.image}>
 
@@ -20,11 +31,24 @@ const LoginScreen = ({navigation}) => (
           <View style = {styles.form}>
             <Text style = {styles.header}>Log In</Text>
             <View style = {styles.formquestions}>
-              <TextInput style = {styles.question}placeholder="Enter Email" />
+              <TextInput style = {styles.question}placeholder="Enter Email" onChangeText={text => {
+                if (text === creds.email) {
+                  setEmailAuth(true);
+                } else {
+                  setEmailAuth(false);
+                }
+              }} />
               <TextInput
                 style = {styles.question}
                 secureTextEntry={true}
                 placeholder="Enter Password"
+                onChangeText={text => {
+                  if (text === creds.pass) {
+                    setPassAuth(true);
+                  } else {
+                    setPassAuth(false);
+                  }
+                }}
               />
             </View>
           </View>
@@ -33,7 +57,13 @@ const LoginScreen = ({navigation}) => (
 
           {/*Submit Button*/}
           <View style={submitButton.submitStyle}>
-            <Pressable style={submitButton.submit} onPress={() => navigation.navigate('Dashboard', {name: 'Dashboard'})}>
+            <Pressable style={submitButton.submit} onPress={() => {
+              if (emailAuth === true && passAuth === true) {
+                navigation.navigate('Dashboard', {name: 'Dashboard'})
+              } else {
+                alert('Incorrect Email or Password');
+              }
+            }}>
                 <Text style={submitButton.text}>
                   Submit
                 </Text>
@@ -41,7 +71,8 @@ const LoginScreen = ({navigation}) => (
           </View>
         </ImageBackground>
     </View>
-);
+  );
+}
 
 const styles = StyleSheet.create({
   //main container

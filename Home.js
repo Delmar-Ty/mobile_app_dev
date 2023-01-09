@@ -34,7 +34,7 @@ const HomeScreen = ({navigation}) => (
             </View>
 
             {/*Licensing Terms & Conditions*/}
-            <Text style = {styles.licensinginfo}>Licensing Terms & Conditions</Text>
+            <Text onPress={() => navigation.navigate('Dashboard', {Dashboard: 'Home'})} style = {styles.licensinginfo}>Licensing Terms & Conditions</Text>
           </View>
         </ImageBackground>
     </View>

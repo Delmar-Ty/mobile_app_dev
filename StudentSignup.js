@@ -21,10 +21,12 @@ const StudentSignupScreen = ({navigation}) => (
         <View style = {styles.nextStyle}>
           <Text style = {styles.next} onPress={() => navigation.navigate('StudentSignup2', {name: 'StudentSignup2'})}>Next</Text>
         </View>
-        <View style = {styles.circlebox}>
+        {/* <View style = {styles.circlebox}>
           <Text style = {styles.circle}>a</Text>
-          <Text style = {styles.circle}>a</Text>
-        </View>
+        </View> */}
+        {/* <View style = {styles.circlebox}>
+          <Text style = {styles.emptycircle}>a</Text>
+        </View> */}
         
         </ImageBackground>
     </View>
@@ -108,7 +110,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
       },
       circlebox: {
-        alignSelf: 'center'
+        textAlign: 'center'
       },
       circle: {
         color: '#0C2340',
@@ -117,6 +119,15 @@ const styles = StyleSheet.create({
         width: 30,
         borderRadius: 15,
         marginTop: 100,
+      },
+      emptycircle: {
+        color: '#FFFFFF',
+        backgroundColor: '#FFFFFF',
+        height: 30,
+        width: 30,
+        borderRadius: 15,
+        marginTop: 100,
+        marginLeft: '20%'
       }
 })
 
