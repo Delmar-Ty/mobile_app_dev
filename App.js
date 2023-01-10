@@ -9,6 +9,7 @@ import ParentSignupScreen from './ParentSignup.js';
 import TeacherSignupScreen from './TeacherSignup.js';
 import StudentSignupScreen2 from './StudentSignup2.js';
 import DashboardScreen from './Dashboard.js';
+import DashboardUnscuffed from './DashboardUnscuffed.js'
 
 const Stack = createNativeStackNavigator();
 
@@ -71,6 +72,14 @@ const App = () => (
             options ={{
               headerShown: false
             }}/>
+
+            <Stack.Screen
+            name='DashboardUnscuffed'
+            component={DashboardUnscuffed}
+            options = {{
+              headerShown: false
+            }}
+            />
         </Stack.Navigator>
     </NavigationContainer>
 );

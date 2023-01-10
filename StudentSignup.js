@@ -23,8 +23,8 @@ const StudentSignupScreen = ({navigation}) => (
         </View>
         {/* <View style = {styles.circlebox}>
           <Text style = {styles.circle}>a</Text>
-        </View> */}
-        {/* <View style = {styles.circlebox}>
+        </View>
+        <View style = {styles.circlebox}>
           <Text style = {styles.emptycircle}>a</Text>
         </View> */}
         
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     //Login form
       form: {
         alignItems: 'center',
-        paddingTop: 100
+        paddingTop: 50,
       },
       header: {
         justifyContent: 'center',
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         backgroundColor: 'rgba(245, 245, 245, 0.30)',
         borderRadius: 5,
-        margin: 10,
+        marginTop: '8%',
         height: '100%',
         width: '100%',
         fontSize: 20,
