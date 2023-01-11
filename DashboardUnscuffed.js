@@ -8,6 +8,7 @@ import camera from './assets/camera-icon.png'
 import phone from './assets/phone-icon.png'
 import whitelogo from './assets/white-logo.png'
 import usericon from './assets/usericon.png'
+import campus from './assets/central-campus-building-a.png'
 
 const DashboardUnscuffed = ({navigation}) => {
     return (
@@ -31,7 +32,8 @@ const DashboardUnscuffed = ({navigation}) => {
 
             {/*Body*/}
             <View style={styles.body}>
-                
+                <ImageBackground style = {styles.body.campusbanner}source = {campus}></ImageBackground>
+                    <Text style = {styles.body.campusbanner.campustext}>Central Campus</Text>
             </View>
 
             {/*Footer*/}
@@ -117,7 +119,18 @@ const styles = StyleSheet.create({
     },
     body: {
         width: '100%',
-        height: '70%'
+        height: '70%',
+        campusbanner:{
+            width: '100%',
+            height: '55%',
+            campustext:{
+                color: '#FFFFFF',
+                backgroundColor: 'rgba(12,35,64, 0.5)',
+                textAlign: 'center',
+                fontSize: 40,
+                fontWeight: '600'
+            }
+        }
     },
     footer: {
         width: '100%',
