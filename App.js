@@ -9,7 +9,11 @@ import ParentSignupScreen from './ParentSignup.js';
 import TeacherSignupScreen from './TeacherSignup.js';
 import StudentSignupScreen2 from './StudentSignup2.js';
 import DashboardScreen from './Dashboard.js';
-import DashboardUnscuffed from './DashboardUnscuffed.js'
+import DashboardUnscuffed from './DashboardUnscuffed.js';
+import FrybreadScreen from './Frybread.js';
+import JeansScreen from './Jeans.js';
+import ArrestScreen from './Arrests.js';
+import CalendarScreen from './Calendar.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -76,6 +80,34 @@ const App = () => (
             <Stack.Screen
             name='DashboardUnscuffed'
             component={DashboardUnscuffed}
+            options = {{
+              headerShown: false
+            }}
+            />
+            <Stack.Screen
+            name='Frybread'
+            component={FrybreadScreen}
+            options = {{
+              headerShown: false
+            }}
+            />
+            <Stack.Screen
+            name='Jeans'
+            component={JeansScreen}
+            options = {{
+              headerShown: false
+            }}
+            />
+            <Stack.Screen
+            name='Arrests'
+            component={ArrestScreen}
+            options = {{
+              headerShown: false
+            }}
+            />
+            <Stack.Screen
+            name='Calendar'
+            component={CalendarScreen}
             options = {{
               headerShown: false
             }}

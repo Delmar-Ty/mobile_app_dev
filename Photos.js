@@ -8,9 +8,8 @@ import camera from './assets/camera-icon.png'
 import phone from './assets/phone-icon.png'
 import whitelogo from './assets/white-logo.png'
 import usericon from './assets/usericon.png'
-import campus from './assets/central-campus-building-a.png'
 
-const DashboardUnscuffed = ({navigation}) => {
+const PhotoScreen = ({navigation}) => {
     return (
         <View style={styles.page}>
 
@@ -32,23 +31,6 @@ const DashboardUnscuffed = ({navigation}) => {
 
             {/*Body*/}
             <View style={styles.body}>
-                <View style={styles.body.campuscontainer}>
-                    <ImageBackground style = {styles.body.campuscontainer.campusbanner}source = {campus}>
-                        <Text style = {styles.body.campuscontainer.campusbanner.campustext}>Central Campus</Text>
-                    </ImageBackground>
-                </View>
-
-                <View style = {styles.body.campusnews}>
-                    <Pressable onPress={() => navigation.navigate('Frybread', {name: 'Frybread'})} style={styles.body.campusnews.newsitem}>
-                        <Text>Aviation Fry Bread Fundraiser</Text>
-                    </Pressable>
-                    <Pressable onPress={() => navigation.navigate('Jeans', {name: 'Jeans'})} style={styles.body.campusnews.newsitem}>
-                        <Text>Coding Bucket Jeans Fundraiser</Text>
-                    </Pressable>
-                    <Pressable onPress={() => navigation.navigate('Arrests', {name: 'Arrests'})} style={styles.body.campusnews.newsitem}>
-                        <Text>Law & Public Safety Arrest Fundraise</Text>
-                    </Pressable>
-                </View>
             </View>
 
             {/*Footer*/}
@@ -135,37 +117,6 @@ const styles = StyleSheet.create({
     body: {
         width: '100%',
         height: '70%',
-        campuscontainer: {
-            width: '100%',
-            height: '35%', 
-            campusbanner:{
-                width: '100%',
-                height: '100%',
-                justifyContent: 'center',
-                campustext:{
-                    color: '#FFFFFF',
-                    backgroundColor: 'rgba(12,35,64, 0.5)',
-                    textAlign: 'center',
-                    fontSize: 40,
-                    fontWeight: '600',
-                },
-            },
-        },
-        campusnews:{
-            width: '100%',
-            height: '65%',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-evenly',
-            newsitem:{
-                backgroundColor: '#F57F20',
-                padding: '7.5%',
-                marginHorizontal: '5%',
-                borderRadius: 5,
-                alignItems: 'center',
-                fontSize: 50
-            }
-        }
     },
     footer: {
         width: '100%',
@@ -202,4 +153,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default DashboardUnscuffed;
+export default PhotoScreen;

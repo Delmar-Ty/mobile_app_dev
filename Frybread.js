@@ -8,9 +8,9 @@ import camera from './assets/camera-icon.png'
 import phone from './assets/phone-icon.png'
 import whitelogo from './assets/white-logo.png'
 import usericon from './assets/usericon.png'
-import campus from './assets/central-campus-building-a.png'
+import frybread from './assets/defnitely-frybread.jpg'
 
-const DashboardUnscuffed = ({navigation}) => {
+const FrybreadScreen = ({navigation}) => {
     return (
         <View style={styles.page}>
 
@@ -32,22 +32,16 @@ const DashboardUnscuffed = ({navigation}) => {
 
             {/*Body*/}
             <View style={styles.body}>
-                <View style={styles.body.campuscontainer}>
-                    <ImageBackground style = {styles.body.campuscontainer.campusbanner}source = {campus}>
-                        <Text style = {styles.body.campuscontainer.campusbanner.campustext}>Central Campus</Text>
+            <View style={styles.body.itemcontainer}>
+                    <ImageBackground style = {styles.body.itemcontainer.itembanner}source = {frybread}>
                     </ImageBackground>
+                <View style = {styles.body.item}>
+                    <Text style = {styles.body.item.infotitle}>FryBread</Text>
+                    <Text style = {styles.body.item.infoinfo}>
+                    A fry bread fundraiser is being organized by the aviation class. The proceeds from the fundraiser will be used to purchase new equipment for the class. The fry bread will be made fresh on the day of the event and will be sold for $3 per plate. 
+                    </Text>    
+                    <Text style = {styles.body.item.infowhen}>January 23rd, 25th, and 27th - 1:00pm - 5:00pm</Text>
                 </View>
-
-                <View style = {styles.body.campusnews}>
-                    <Pressable onPress={() => navigation.navigate('Frybread', {name: 'Frybread'})} style={styles.body.campusnews.newsitem}>
-                        <Text>Aviation Fry Bread Fundraiser</Text>
-                    </Pressable>
-                    <Pressable onPress={() => navigation.navigate('Jeans', {name: 'Jeans'})} style={styles.body.campusnews.newsitem}>
-                        <Text>Coding Bucket Jeans Fundraiser</Text>
-                    </Pressable>
-                    <Pressable onPress={() => navigation.navigate('Arrests', {name: 'Arrests'})} style={styles.body.campusnews.newsitem}>
-                        <Text>Law & Public Safety Arrest Fundraise</Text>
-                    </Pressable>
                 </View>
             </View>
 
@@ -135,35 +129,52 @@ const styles = StyleSheet.create({
     body: {
         width: '100%',
         height: '70%',
-        campuscontainer: {
-            width: '100%',
+        itemcontainer: {
+            width: '90%',
             height: '35%', 
-            campusbanner:{
+            alignItems: 'center',
+            itembanner:{
                 width: '100%',
                 height: '100%',
                 justifyContent: 'center',
-                campustext:{
-                    color: '#FFFFFF',
-                    backgroundColor: 'rgba(12,35,64, 0.5)',
-                    textAlign: 'center',
-                    fontSize: 40,
-                    fontWeight: '600',
-                },
+                marginLeft: '12%',
+                marginTop: '5%',
             },
         },
-        campusnews:{
+        item:{
             width: '100%',
-            height: '65%',
+            height: '100%',
             display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-evenly',
-            newsitem:{
+            textAlign: 'center',
+            marginTop: '5%',
+            infotitle:{
+                width: '100%',
                 backgroundColor: '#F57F20',
                 padding: '7.5%',
-                marginHorizontal: '5%',
+                marginHorizontal: '6%',
                 borderRadius: 5,
                 alignItems: 'center',
-                fontSize: 50
+                fontSize: 25,
+                textAlign: 'center',
+            },
+            infoinfo:{
+                width: '100%',
+                marginHorizontal: '6%',
+                marginTop: '2.5%',
+                textAlign: 'center'
+            },
+            infowhen:{
+                width: '100%',
+                backgroundColor: '#0C2340',
+                color: '#FFFFFF',
+                padding: '2.5%',
+                marginHorizontal: '6%',
+                borderRadius: 5,
+                alignItems: 'center',
+                fontSize: 15,
+                textAlign: 'center',
+                marginTop: '5%',
+                fontWeight: '600'
             }
         }
     },
@@ -202,4 +213,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default DashboardUnscuffed;
+export default FrybreadScreen;
