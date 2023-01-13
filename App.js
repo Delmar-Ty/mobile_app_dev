@@ -14,6 +14,12 @@ import FrybreadScreen from './Frybread.js';
 import JeansScreen from './Jeans.js';
 import ArrestScreen from './Arrests.js';
 import CalendarScreen from './Calendar.js';
+import PhotoScreen from './Photos.js';
+import ContactScreen from './Contact.js';
+import AssignmentScreen from './Assignments.js';
+import ParentSignupScreen2 from './ParentSignup2.js';
+import TeacherSignupScreen2 from './TeacherSignup2.js';
+import UserScreen from './User.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -108,6 +114,48 @@ const App = () => (
             <Stack.Screen
             name='Calendar'
             component={CalendarScreen}
+            options = {{
+              headerShown: false
+            }}
+            />
+            <Stack.Screen
+            name='Photos'
+            component={PhotoScreen}
+            options = {{
+              headerShown: false
+            }}
+            />
+            <Stack.Screen
+            name='Contact'
+            component={ContactScreen}
+            options = {{
+              headerShown: false
+            }}
+            />
+            <Stack.Screen
+            name='Assignments'
+            component={AssignmentScreen}
+            options = {{
+              headerShown: false
+            }}
+            />
+            <Stack.Screen
+            name='ParentSignup2'
+            component={ParentSignupScreen2}
+            options = {{
+              headerShown: false
+            }}
+            />
+            <Stack.Screen
+            name='TeacherSignup2'
+            component={TeacherSignupScreen2}
+            options = {{
+              headerShown: false
+            }}
+            />
+            <Stack.Screen
+            name='User'
+            component={UserScreen}
             options = {{
               headerShown: false
             }}

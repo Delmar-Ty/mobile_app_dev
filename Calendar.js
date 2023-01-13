@@ -18,10 +18,12 @@ const CalendarScreen = ({navigation}) => {
                 <ImageBackground style={styles.header.bgImg} source={bannerImg}>
                     <View style={styles.header.bgImg.container}>
                         <View style={styles.header.bgImg.container.logo}>
-                            <Image style={styles.header.bgImg.container.logo.img} source={whitelogo}/>
+                            <Pressable onPress={() => navigation.navigate('Home', {name: 'Home'})}>
+                                <Image style={styles.header.bgImg.container.logo.img} source={whitelogo}/>
+                            </Pressable>
                         </View>
                         <View style={styles.header.bgImg.container.user.body}>
-                            <Pressable style={styles.header.bgImg.container.user.button}>
+                            <Pressable onPress={() => navigation.navigate('User', {name: 'User'})} style={styles.header.bgImg.container.user.button}>
                                 <Image source={usericon} style={styles.header.bgImg.container.user.img}/>
                             </Pressable>
                         </View> 
@@ -91,7 +93,7 @@ const styles = StyleSheet.create({
                 alignItems: 'center',
                 flexDirection: 'row',
                 logo: {
-                    aspectRatio: 32.1 / 19,
+                    aspectRatio: 32 / 19,
                     width: '25%',
                     marginLeft: '5%',
                     img: {

@@ -8,9 +8,8 @@ import camera from './assets/camera-icon.png'
 import phone from './assets/phone-icon.png'
 import whitelogo from './assets/white-logo.png'
 import usericon from './assets/usericon.png'
-import jeans from './assets/jeans.jpg'
 
-const JeansScreen = ({navigation}) => {
+const UserScreen = ({navigation}) => {
     return (
         <View style={styles.page}>
 
@@ -34,17 +33,6 @@ const JeansScreen = ({navigation}) => {
 
             {/*Body*/}
             <View style={styles.body}>
-            <View style={styles.body.itemcontainer}>
-                    <ImageBackground style = {styles.body.itemcontainer.itembanner}source = {jeans}>
-                    </ImageBackground>
-                <View style = {styles.body.item}>
-                    <Text style = {styles.body.item.infotitle}>Bucket Jeans</Text>
-                    <Text style = {styles.body.item.infoinfo}>
-                    This is a Coding class specific fundraiser. Students have the option to "dress-down" and wear something besides the uniform black jeans by paying the fee of $1 on the days the fundraiser is occurring. Earnings will go to the upcoming FBLA competition.
-                    </Text>    
-                    <Text style = {styles.body.item.infowhen}>February 3rd, 10th, 17th, and 24th</Text>
-                </View>
-                </View>
             </View>
 
             {/*Footer*/}
@@ -131,54 +119,6 @@ const styles = StyleSheet.create({
     body: {
         width: '100%',
         height: '70%',
-        itemcontainer: {
-            width: '90%',
-            height: '35%', 
-            alignItems: 'center',
-            itembanner:{
-                width: '100%',
-                height: '100%',
-                justifyContent: 'center',
-                marginLeft: '12%',
-                marginTop: '5%',
-            },
-        },
-        item:{
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            textAlign: 'center',
-            marginTop: '5%',
-            infotitle:{
-                width: '100%',
-                backgroundColor: '#F57F20',
-                padding: '7.5%',
-                marginHorizontal: '6%',
-                borderRadius: 5,
-                alignItems: 'center',
-                fontSize: 25,
-                textAlign: 'center',
-            },
-            infoinfo:{
-                width: '100%',
-                marginHorizontal: '6%',
-                marginTop: '2.5%',
-                textAlign: 'center'
-            },
-            infowhen:{
-                width: '100%',
-                backgroundColor: '#0C2340',
-                color: '#FFFFFF',
-                padding: '2.5%',
-                marginHorizontal: '6%',
-                borderRadius: 5,
-                alignItems: 'center',
-                fontSize: 15,
-                textAlign: 'center',
-                marginTop: '5%',
-                fontWeight: '600'
-            }
-        }
     },
     footer: {
         width: '100%',
@@ -215,4 +155,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default JeansScreen;
+export default UserScreen;

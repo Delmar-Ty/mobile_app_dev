@@ -19,7 +19,7 @@ const ParentSignupScreen = ({navigation}) => (
             </View>
         </View>
         <View style = {styles.nextStyle}>
-          <Text style = {styles.next}>Next</Text>
+          <Text onPress={() => navigation.navigate('ParentSignup2', {name: 'ParentSignup2'})} style = {styles.next}>Next</Text>
         </View>
         </ImageBackground>
     </View>

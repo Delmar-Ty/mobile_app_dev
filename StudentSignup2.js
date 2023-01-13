@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View, ImageBackground, Button, TextInput } from 'react-native';
 import React from 'react';
 import bgImage from './assets/home-orange-gradient.png';
-// import ModalDropdown from 'react-native-modal-dropdown';
 
 
 const StudentSignupScreen2 = ({navigation}) => ( 
@@ -12,7 +11,6 @@ const StudentSignupScreen2 = ({navigation}) => (
             </View>
         <View style = {styles.form}>
             <View style = {styles.formquestions}>
-            {/* <ModalDropdown options={['option 1', 'option 2']}/> */}
               <TextInput style = {styles.question}placeholder="Campus" />
               <TextInput style = {styles.question}placeholder="Program" />
               <TextInput style = {styles.question}placeholder="Student ID" />

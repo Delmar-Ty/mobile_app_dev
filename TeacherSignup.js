@@ -19,7 +19,7 @@ const TeacherSignupScreen = ({navigation}) => (
             </View>
         </View>
         <View style = {styles.nextStyle}>
-          <Text style = {styles.next}>Next</Text>
+          <Text onPress={() => navigation.navigate('TeacherSignup2', {name: 'TeacherSignup2'})} style = {styles.next}>Next</Text>
         </View>
         </ImageBackground>
     </View>

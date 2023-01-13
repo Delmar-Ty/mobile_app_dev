@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ImageBackground, Image, Button, Pressable } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, Image, Button, Pressable , TextInput} from 'react-native';
 import React from 'react';
 import bannerImg from './assets/blue-gradient.png'
 import home from './assets/home-icon.png'
@@ -18,10 +18,12 @@ const ContactScreen = ({navigation}) => {
                 <ImageBackground style={styles.header.bgImg} source={bannerImg}>
                     <View style={styles.header.bgImg.container}>
                         <View style={styles.header.bgImg.container.logo}>
-                            <Image style={styles.header.bgImg.container.logo.img} source={whitelogo}/>
+                            <Pressable onPress={() => navigation.navigate('Home', {name: 'Home'})}>
+                                <Image style={styles.header.bgImg.container.logo.img} source={whitelogo}/>
+                            </Pressable>
                         </View>
                         <View style={styles.header.bgImg.container.user.body}>
-                            <Pressable style={styles.header.bgImg.container.user.button}>
+                            <Pressable onPress={() => navigation.navigate('User', {name: 'User'})} style={styles.header.bgImg.container.user.button}>
                                 <Image source={usericon} style={styles.header.bgImg.container.user.img}/>
                             </Pressable>
                         </View> 
@@ -31,6 +33,18 @@ const ContactScreen = ({navigation}) => {
 
             {/*Body*/}
             <View style={styles.body}>
+                <View style = {styles.body.heading}>
+                    <Text style = {styles.body.heading.headingtext}>Contact Admin</Text>
+                </View>
+                <View style = {styles.body.contactform}>
+                    <View style = {styles.formquestions}>
+                        <TextInput style = {styles.body.contactform.formquestions.subject} placeholder="Subject" />
+                        <TextInput style = {styles.body.contactform.formquestions.message}placeholder="Message" />
+                        <Pressable onPress={() => navigation.navigate('User', {name: 'User'})} style={styles.header.bgImg.container.user.button}>
+                            <Text style = {styles.body.contactform.submit}>Send</Text>
+                        </Pressable>
+                    </View>
+                </View>
             </View>
 
             {/*Footer*/}
@@ -86,7 +100,7 @@ const styles = StyleSheet.create({
                 alignItems: 'center',
                 flexDirection: 'row',
                 logo: {
-                    aspectRatio: 32.1 / 19,
+                    aspectRatio: 32 / 19,
                     width: '25%',
                     marginLeft: '5%',
                     img: {
@@ -117,6 +131,42 @@ const styles = StyleSheet.create({
     body: {
         width: '100%',
         height: '70%',
+        heading:{
+            textAlign: 'center',
+            width: '60%',
+            height: '10%',
+            backgroundColor: '#F57F20',
+            justifyContent: 'center',
+            marginHorizontal: '20%',
+            borderRadius: 25,
+            marginTop: '5%',
+            headingtext:{
+                textAlign: 'center',
+                fontSize: 25,
+                fontWeight: '600'
+            }
+        },
+        contactform:{
+            height: '75%',
+            width: '90%',
+            justifyContent: 'center',
+            backgroundColor: 'rgba(12,35,64, 1)',
+            margin: '5%',
+            formquestions:{
+                width: '100%',
+                height: '75%',
+                backgroundColor: 'red',
+                subject:{
+                    
+                },
+                message:{
+
+                }
+            },
+            submit:{
+
+            }
+        }
     },
     footer: {
         width: '100%',
