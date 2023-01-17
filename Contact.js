@@ -40,8 +40,8 @@ const ContactScreen = ({navigation}) => {
                     <View style = {styles.formquestions}>
                         <TextInput style = {styles.body.contactform.formquestions.subject} placeholder="Subject" />
                         <TextInput style = {styles.body.contactform.formquestions.message}placeholder="Message" />
-                        <Pressable onPress={() => navigation.navigate('User', {name: 'User'})} style={styles.header.bgImg.container.user.button}>
-                            <Text style = {styles.body.contactform.submit}>Send</Text>
+                        <Pressable onPress={() => navigation.navigate('User', {name: 'User'})} style={styles.body.contactform.submit}>
+                            <Text style = {styles.body.contactform.submit.text}>Send</Text>
                         </Pressable>
                     </View>
                 </View>
@@ -151,20 +151,34 @@ const styles = StyleSheet.create({
             width: '90%',
             justifyContent: 'center',
             backgroundColor: 'rgba(12,35,64, 1)',
+            paddingHorizontal: '5%',
             margin: '5%',
             formquestions:{
                 width: '100%',
                 height: '75%',
+                margin: '5%',
                 backgroundColor: 'red',
                 subject:{
-                    
+                    backgroundColor: '#FFFFFF',
+                    padding: '2.5%'
                 },
                 message:{
-
+                    marginTop: '5%',
+                    backgroundColor: '#FFFFFF',
+                    padding: '2.5%',
+                    height: '50%'
                 }
             },
             submit:{
-
+                width: '100%',
+                height: '17.5%',
+                backgroundColor: '#FFFFFF',
+                marginTop: '5%',
+                padding: '5%',
+                borderRadius: 10,
+                text:{
+                    textAlign: 'center',
+                }
             }
         }
     },

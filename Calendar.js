@@ -8,6 +8,7 @@ import camera from './assets/camera-icon.png'
 import phone from './assets/phone-icon.png'
 import whitelogo from './assets/white-logo.png'
 import usericon from './assets/usericon.png'
+import calendarpic from './assets/calendar.png'
 
 const CalendarScreen = ({navigation}) => {
     return (
@@ -33,10 +34,14 @@ const CalendarScreen = ({navigation}) => {
 
             {/*Body*/}
             <View style={styles.body}>
-            <View style={styles.body.itemcontainer}>
-                <View style = {styles.body.item}>
-                    <Text style = {styles.body.item.infotitle}>Calendar</Text>
-                </View>
+                <View style={styles.body.itemcontainer}>
+                    <View style = {styles.body.item}>
+                        <Text style = {styles.body.item.infotitle}>January</Text>
+                    </View>
+                    <View style = {styles.body.calendarcontainer}>
+                        <ImageBackground source={calendarpic} style={styles.body.calendarcontainer.calendarpic}/>
+                        {/* <Image source={calendarpic} style={styles.body.calendarcontainer.calendarpic}/> */}
+                    </View>
                 </View>
             </View>
 
@@ -125,51 +130,29 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '70%',
         itemcontainer: {
-            width: '90%',
-            height: '35%', 
+            flex: 1,
             alignItems: 'center',
-            itembanner:{
-                width: '100%',
-                height: '100%',
-                justifyContent: 'center',
-                marginLeft: '12%',
-                marginTop: '5%',
-            },
+            justifyContent: 'space-around'
         },
         item:{
-            width: '100%',
-            height: '100%',
+            width: '90%',
+            height: '15%',
             display: 'flex',
-            textAlign: 'center',
-            marginTop: '5%',
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: '#F57F20',
+            borderRadius: 5,
             infotitle:{
-                width: '100%',
-                backgroundColor: '#F57F20',
-                padding: '7.5%',
-                marginHorizontal: '6%',
-                borderRadius: 5,
-                alignItems: 'center',
                 fontSize: 25,
-                textAlign: 'center',
             },
-            infoinfo:{
-                width: '100%',
-                marginHorizontal: '6%',
-                marginTop: '2.5%',
-                textAlign: 'center'
-            },
-            infowhen:{
-                width: '100%',
-                backgroundColor: '#0C2340',
-                color: '#FFFFFF',
-                padding: '2.5%',
-                marginHorizontal: '6%',
-                borderRadius: 5,
-                alignItems: 'center',
-                fontSize: 15,
-                textAlign: 'center',
-                marginTop: '5%',
-                fontWeight: '600'
+        },
+        calendarcontainer:{
+            width: '90%',
+            justifyContent: 'center',
+            alignItems: 'center',
+            calendarpic:{
+                aspectRatio: 256 / 109,
+                width: '100%'
             }
         }
     },
