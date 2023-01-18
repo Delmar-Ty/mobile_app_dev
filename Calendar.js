@@ -34,15 +34,38 @@ const CalendarScreen = ({navigation}) => {
 
             {/*Body*/}
             <View style={styles.body}>
-                <View style={styles.body.itemcontainer}>
                     <View style = {styles.body.item}>
                         <Text style = {styles.body.item.infotitle}>January</Text>
+                        <View style = {styles.body.item.calendarcontainer}>
+                            <View style = {styles.body.item.calendarcontainer.daynames}>
+                                <Text style = {styles.body.item.calendarcontainer.daynames.names}>S M T W T F S</Text>
+                            </View>
+                            <View style = {styles.body.item.calendarcontainer.daynumbers}>
+                                <Text style = {styles.body.item.calendarcontainer.daynumbers.numbers}>15 16 17 18 19 20 21</Text>
+                            </View>
+                            <View style = {styles.body.item.calendarcontainer.dayevents}>
+                                <View style = {styles.body.item.calendarcontainer.dayevents.event}>
+                                    <Text style = {styles.body.item.calendarcontainer.dayevents.event.day}>January 16th, 2023</Text>
+                                    <View style = {styles.body.item.calendarcontainer.dayevents.event.eventbox}>
+                                        <Text>Martin Luther King Jr. Day - No School</Text>
+                                    </View>
+                                </View>
+                                <View style = {styles.body.item.calendarcontainer.dayevents.event}>
+                                    <Text style = {styles.body.item.calendarcontainer.dayevents.event.day}>January 21st, 2023</Text>
+                                    <View style = {styles.body.item.calendarcontainer.dayevents.event.eventbox}>
+                                        <Text>West-MEC Coding FBLA Regionals</Text>
+                                    </View>
+                                    <View style = {styles.body.item.calendarcontainer.dayevents.event.eventbox}>
+                                        <Text>Aviation/Avionics Flight Trial</Text>
+                                    </View>
+                                </View>
+                            </View>
+                        </View> 
                     </View>
-                    <View style = {styles.body.calendarcontainer}>
+
+                    {/* <View style = {styles.body.calendarcontainer}>
                         <ImageBackground source={calendarpic} style={styles.body.calendarcontainer.calendarpic}/>
-                        {/* <Image source={calendarpic} style={styles.body.calendarcontainer.calendarpic}/> */}
-                    </View>
-                </View>
+                    </View> */}
             </View>
 
             {/*Footer*/}
@@ -129,32 +152,83 @@ const styles = StyleSheet.create({
     body: {
         width: '100%',
         height: '70%',
-        itemcontainer: {
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'space-around'
-        },
         item:{
-            width: '90%',
-            height: '15%',
+            width: '100%',
+            height: '100%',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            backgroundColor: '#F57F20',
             borderRadius: 5,
             infotitle:{
+                width: '50%',
+                height: '10%',
+                paddingTop: '2.5%',
+                justifyContent: 'center',
+                textAlign: 'center',
                 fontSize: 25,
+                backgroundColor: '#F57F20',
+                borderRadius: 5,
+                fontWeight: '600'
             },
-        },
-        calendarcontainer:{
-            width: '90%',
-            justifyContent: 'center',
-            alignItems: 'center',
-            calendarpic:{
-                aspectRatio: 256 / 109,
-                width: '100%'
+            calendarcontainer:{
+                width: '90%',
+                height: '80%',  
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderColor: '#0C2340',
+                borderWidth: 5,
+                marginHorizontal: '5%',
+                marginVertical: '5%',
+                // backgroundColor: 'red',
+                daynames:{
+                    height: '10%',
+                    // backgroundColor: 'yellow',
+                    names:{
+                    letterSpacing: 10,
+                    fontSize: 25,
+                    justifyContent: 'center',
+                    fontWeight: '600'
+                    }
+                },
+                daynumbers:{
+                    height: '10%',
+                    // backgroundColor: 'purple',
+                    numbers:{
+                        letterSpacing: 5,
+                        fontSize: 25,
+                        justifyContent: 'center',
+                        fontWeight: '600',
+                        color: 'gray'
+                    }
+                },
+                dayevents:{
+                    height: '70%',
+                    width: '100%',
+                    // backgroundColor: 'green',
+                    event:{
+                        height: '25%',
+                        width: '100%',
+                        marginTop: '10%',
+                        eventbox:{
+                            backgroundColor: '#F57F20',
+                            marginHorizontal: '5%',
+                            padding: '5%',
+                            marginTop: '2.5%'
+                        },
+                        day:{
+                            fontSize: 15,
+                            fontWeight: '600',
+                            marginLeft: '5%'
+                        }
+                    },
+
+                }
+                // calendarpic:{
+                //     aspectRatio: 256 / 109,
+                //     width: '100%'
+                // }
             }
-        }
+        },
     },
     footer: {
         width: '100%',

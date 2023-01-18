@@ -8,6 +8,7 @@ import camera from './assets/camera-icon.png'
 import phone from './assets/phone-icon.png'
 import whitelogo from './assets/white-logo.png'
 import usericon from './assets/usericon.png'
+import uploadicon from './assets/upload.png'
 
 const PhotoScreen = ({navigation}) => {
     return (
@@ -33,6 +34,12 @@ const PhotoScreen = ({navigation}) => {
 
             {/*Body*/}
             <View style={styles.body}>
+                <View style={styles.body.buttonContainer}>
+                    <Pressable style={styles.body.buttonContainer.button} onPress={() => {}}>
+                        <Image source={uploadicon} style={styles.body.buttonContainer.button.buttonImg}/>{/*https://www.flaticon.com/free-icons/upload*/}
+                        <Text style={styles.body.buttonContainer.button.buttonText}>Upload Image</Text>
+                    </Pressable>
+                </View>
             </View>
 
             {/*Footer*/}
@@ -119,6 +126,31 @@ const styles = StyleSheet.create({
     body: {
         width: '100%',
         height: '70%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        buttonContainer: {
+            width: '50%',
+            aspectRatio: 1 / 1,
+            backgroundColor: '#F57F20',
+            borderRadius: 1000,
+            justifyContent: 'center',
+            alignItems: 'center',
+            button: {
+                width: '100%',
+                height: '100%',
+                justifyContent: 'center',
+                alignItems: 'center',
+                buttonImg: {
+                    width: '60%',
+                    height: '60%'
+                },
+                buttonText: {
+                    fontSize: 15,
+                    color: 'white',
+                    textDecorationLine: 'underline'
+                }
+            }
+        },
     },
     footer: {
         width: '100%',
