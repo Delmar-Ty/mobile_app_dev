@@ -41,6 +41,8 @@ const DashboardUnscuffed = ({navigation}) => {
                 </View>
 
                 <View style = {styles.body.campusnews}>
+                    <Text style = {styles.body.campusnews.title}>Current Events</Text>
+                    <View style = {styles.body.campusnews.line}></View>
                     <Pressable onPress={() => navigation.navigate('Frybread', {name: 'Frybread'})} style={styles.body.campusnews.newsitem}>
                         <Text>Aviation Fry Bread Fundraiser</Text>
                     </Pressable>
@@ -48,7 +50,13 @@ const DashboardUnscuffed = ({navigation}) => {
                         <Text>Coding Bucket Jeans Fundraiser</Text>
                     </Pressable>
                     <Pressable onPress={() => navigation.navigate('Arrests', {name: 'Arrests'})} style={styles.body.campusnews.newsitem}>
-                        <Text>Law & Public Safety Arrest Fundraise</Text>
+                        <Text>Law & Public Safety Arrest Fundraiser</Text>
+                    </Pressable>
+                    <View style = {styles.body.campusnews.line}></View>
+                </View>
+                <View style = {styles.body.instagram}>
+                    <Pressable onPress={() => navigation.navigate('Jeans', {name: 'Jeans'})} style={styles.body.instagram.button}>
+                        <Text style = {styles.body.instagram.button.text}>West-MEC Central Campus Instagram</Text>
                     </Pressable>
                 </View>
             </View>
@@ -155,17 +163,44 @@ const styles = StyleSheet.create({
         },
         campusnews:{
             width: '100%',
-            height: '65%',
+            height: '45%',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-evenly',
+            title:{
+                fontSize: 20,
+                marginLeft: '5%',
+                fontWeight: '600'
+            },
+            line:{
+                borderBottomColor: 'black',
+                borderBottomWidth: 1,
+                marginHorizontal: '10%'
+            },
             newsitem:{
                 backgroundColor: '#F57F20',
-                padding: '7.5%',
+                padding: '5%',
                 marginHorizontal: '5%',
                 borderRadius: 5,
                 alignItems: 'center',
                 fontSize: 50
+            }
+        },
+        instagram:{
+            width: '100%',
+            height: '15%',
+            marginVertical: '2.5%',
+            justifyContent: 'center',
+            alignItems: 'center',
+            button:{
+                backgroundColor: 'rgba(12,35,64, 1)',
+                padding: '5%',
+                borderRadius: 25,
+                text:{
+                    color: '#FFFFFF',
+                    fontSize: 17.5,
+                    fontWeight: '800'
+                }
             }
         }
     },

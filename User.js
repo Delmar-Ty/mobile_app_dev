@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ImageBackground, Image, Button, Pressable } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, Image, Button, Pressable , TextInput} from 'react-native';
 import React from 'react';
 import bannerImg from './assets/blue-gradient.png'
 import home from './assets/home-icon.png'
@@ -33,6 +33,21 @@ const UserScreen = ({navigation}) => {
 
             {/*Body*/}
             <View style={styles.body}>
+                <View style = {styles.body.studentinfo}>
+                    <Text style = {styles.body.studentinfo.title}>Student Info</Text>
+                    <View style={styles.body.studentinfo.studentpic}>
+                        <Image source={usericon} style={styles.body.studentinfo.studentpic.img}/>
+                    </View>
+                    <Text style = {styles.body.studentinfo.name}>Name</Text>
+                </View>
+                <View style = {styles.body.studentinformationboxes}>
+                    <TextInput style = {styles.body.studentinformationboxes.box} value = {'Grade: '} editable={false}/>
+                    <TextInput style = {styles.body.studentinformationboxes.box} value = {'Campus: '} editable={false}/>
+                    <TextInput style = {styles.body.studentinformationboxes.box} value = {'Program:'} editable={false}/>
+                    <TextInput style = {styles.body.studentinformationboxes.box} value = {'School Email: '} editable={false}/>
+                    <TextInput style = {styles.body.studentinformationboxes.box} value = {"Parent's Phone Number: "} editable={false}/>
+                    <TextInput style = {styles.body.studentinformationboxes.box} value = {'Address: '} editable={false}/>
+                </View>
             </View>
 
             {/*Footer*/}
@@ -119,6 +134,47 @@ const styles = StyleSheet.create({
     body: {
         width: '100%',
         height: '70%',
+        studentinfo:{
+            width: '100%',
+            height: '40%',
+            justifyContent: 'center',
+            alignItems: 'center',
+            studentpic:{
+                backgroundColor: 'gray',
+                aspectRatio: 1/1,
+                borderRadius: 1000,
+                padding: '2.5%',
+                justifyContent: 'center',
+                alignItems: 'center',
+                img:{
+                    aspectRatio: 1/1,
+                    width: '70%',
+                    height: '70%',
+                    borderRadius: 1000,
+                }
+            },
+            title:{
+                fontSize: 20,
+                fontWeight: '600'
+            },
+            name:{
+                fontSize: 20,
+                fontWeight: '600',
+            }
+        },
+        studentinformationboxes:{
+            width: '100%',
+            height: '60%',
+            box:{
+                fontSize: 17.5,
+                paddingVertical: '3%',
+                borderTopWidth: 1,
+                borderColor: 'black',
+                color: '#F57F20',
+                fontWeight: '600',
+                paddingLeft: '5%'
+            }
+        }
     },
     footer: {
         width: '100%',

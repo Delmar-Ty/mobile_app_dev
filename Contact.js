@@ -45,6 +45,7 @@ const ContactScreen = ({navigation}) => {
                         </Pressable>
                     </View>
                 </View>
+                <Text style = {styles.body.bug}>Found a bug? Fill out the subject as "Bug Report" and explain the problem.</Text>
             </View>
 
             {/*Footer*/}
@@ -131,6 +132,10 @@ const styles = StyleSheet.create({
     body: {
         width: '100%',
         height: '70%',
+        bug:{
+            fontSize: 10,
+            textAlign: 'center'
+        },
         heading:{
             textAlign: 'center',
             width: '60%',

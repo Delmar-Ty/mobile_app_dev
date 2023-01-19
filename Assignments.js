@@ -33,6 +33,15 @@ const AssignmentScreen = ({navigation}) => {
 
             {/*Body*/}
             <View style={styles.body}>
+                <View style = {styles.body.assignmentsbox}>
+                    <Text style = {styles.body.assignmentsbox.heading}>My Assignments</Text>
+                    <Text style = {styles.body.assignmentsbox.date}>January 21st, 2023</Text>
+                    <View style = {styles.body.assignmentsbox.line}></View>
+                    <View style = {styles.body.assignmentsbox.assignments}>
+                        <Text style = {styles.body.assignmentsbox.assignments.information}>No Assignments Due Today</Text>
+                    </View>
+                    <View style = {styles.body.assignmentsbox.line}></View>
+                </View>
             </View>
 
             {/*Footer*/}
@@ -119,6 +128,48 @@ const styles = StyleSheet.create({
     body: {
         width: '100%',
         height: '70%',
+        assignmentsbox:{
+            width: '100%',
+            height: '100%',
+            backgroundColor:'#FFFFFF',
+            assignments:{
+                height: '40%',
+                justifyContent: 'center',
+                information:{
+                    textAlign: 'center',
+                    fontSize: 20,
+                    color: 'gray',
+                    fontWeight: '600'
+                }
+            },
+            line:{
+                borderBottomColor: 'black',
+                borderBottomWidth: 1,
+                marginTop: '5%',
+                marginHorizontal: '10%'
+            },
+            date:{
+                fontSize: 20,
+                marginTop: '5%',
+                marginLeft: '2.5%'
+            },
+            heading:{
+                width: '80%',
+                height: '10%',
+                backgroundColor: '#F57F20',
+                textAlign: 'center',
+                fontSize: 25,
+                paddingTop: '2.5%',
+                marginHorizontal: '10%',
+                marginTop: '5%',
+                marginBottom: '7.5%',
+                borderRadius: 5,
+                fontWeight: '600'
+                // borderWidth: 3,
+                // borderColor: 'black'
+            }
+            
+        }
     },
     footer: {
         width: '100%',

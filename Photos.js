@@ -1,16 +1,48 @@
 import { StyleSheet, Text, View, ImageBackground, Image, Button, Pressable } from 'react-native';
+import { useState, useEffect } from 'react';
+import * as ImagePicker from 'expo-image-picker';
 import React from 'react';
-import bannerImg from './assets/blue-gradient.png'
-import home from './assets/home-icon.png'
-import assignments from './assets/clipboard-icon.png'
-import calendar from './assets/calendar-icon.png'
-import camera from './assets/camera-icon.png'
-import phone from './assets/phone-icon.png'
-import whitelogo from './assets/white-logo.png'
-import usericon from './assets/usericon.png'
-import uploadicon from './assets/upload.png'
+import bannerImg from './assets/blue-gradient.png';
+import home from './assets/home-icon.png';
+import assignments from './assets/clipboard-icon.png';
+import calendar from './assets/calendar-icon.png';
+import camera from './assets/camera-icon.png';
+import phone from './assets/phone-icon.png';
+import whitelogo from './assets/white-logo.png';
+import usericon from './assets/usericon.png';
+import uploadicon from './assets/upload.png';
+import { faSleigh } from '@fortawesome/free-solid-svg-icons';
 
 const PhotoScreen = ({navigation}) => {
+    const [hasGalleryPermission, setHasGalleryPermission] = useState(null);
+    const [img, setImg] = useState(null);
+
+    console.log(img);
+
+    useEffect(() => {
+        (async () => {
+            const galleryStatus = await ImagePicker.requestMediaLibraryPermissionsAsync();
+            setHasGalleryPermission(galleryStatus.status === 'granted');
+        })();
+    }, []);
+
+    const pickImage = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.Images,
+            allowsEditing: true,
+            aspect: [4, 3],
+            quality: 1
+        });
+
+        if (!result.canceled) {
+            setImg(result.assets[0].uri);
+        }
+    }
+
+    if (hasGalleryPermission === false) {
+        return <Text>No access to internal storage</Text>
+    }
+
     return (
         <View style={styles.page}>
 
@@ -35,7 +67,7 @@ const PhotoScreen = ({navigation}) => {
             {/*Body*/}
             <View style={styles.body}>
                 <View style={styles.body.buttonContainer}>
-                    <Pressable style={styles.body.buttonContainer.button} onPress={() => {}}>
+                    <Pressable style={styles.body.buttonContainer.button} onPress={() => {pickImage();}}>
                         <Image source={uploadicon} style={styles.body.buttonContainer.button.buttonImg}/>{/*https://www.flaticon.com/free-icons/upload*/}
                         <Text style={styles.body.buttonContainer.button.buttonText}>Upload Image</Text>
                     </Pressable>
