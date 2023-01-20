@@ -9,6 +9,7 @@ import phone from './assets/phone-icon.png'
 import whitelogo from './assets/white-logo.png'
 import usericon from './assets/usericon.png'
 import campus from './assets/central-campus-building-a.png'
+import ExternalLink from './externalLink.js';
 
 const DashboardUnscuffed = ({navigation}) => {
     return (
@@ -55,8 +56,8 @@ const DashboardUnscuffed = ({navigation}) => {
                     <View style = {styles.body.campusnews.line}></View>
                 </View>
                 <View style = {styles.body.instagram}>
-                    <Pressable onPress={() => navigation.navigate('Jeans', {name: 'Jeans'})} style={styles.body.instagram.button}>
-                        <Text style = {styles.body.instagram.button.text}>West-MEC Central Campus Instagram</Text>
+                    <Pressable style={styles.body.instagram.button}>
+                        <ExternalLink url = "https://www.instagram.com/westmeccentral/?hl=en" style = {styles.body.instagram.button.text}>West-MEC Central Campus Instagram</ExternalLink>
                     </Pressable>
                 </View>
             </View>
