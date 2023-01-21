@@ -14,11 +14,12 @@ import uploadicon from './assets/upload.png';
 import { faSleigh } from '@fortawesome/free-solid-svg-icons';
 
 const PhotoScreen = ({navigation}) => {
+
+    //Creating state to hold the img file and the status on device permission
     const [hasGalleryPermission, setHasGalleryPermission] = useState(null);
     const [img, setImg] = useState(null);
 
-    console.log(img);
-
+    //When this page loads for the first time request permission and set state to be the result
     useEffect(() => {
         (async () => {
             const galleryStatus = await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -26,6 +27,7 @@ const PhotoScreen = ({navigation}) => {
         })();
     }, []);
 
+    //Saves the result of an image being selected from picker
     const pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.Images,
@@ -39,6 +41,7 @@ const PhotoScreen = ({navigation}) => {
         }
     }
 
+    //Checking for photo gallery permission
     if (hasGalleryPermission === false) {
         return <Text>No access to internal storage</Text>
     }

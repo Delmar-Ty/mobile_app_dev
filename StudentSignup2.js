@@ -14,8 +14,8 @@ const StudentSignupScreen2 = ({navigation}) => (
               <TextInput style = {styles.question}placeholder="Campus" />
               <TextInput style = {styles.question}placeholder="Program" />
               <TextInput style = {styles.question}placeholder="Student ID" />
-              <TextInput style = {styles.question}placeholder="Password" />
-              <TextInput style = {styles.question}placeholder="Confirm Password" />
+              <TextInput style = {styles.question}placeholder="Password" secureTextEntry={true}/>
+              <TextInput style = {styles.question}placeholder="Confirm Password" secureTextEntry={true}/>
             </View>
         </View>
         <View style = {styles.nextStyle}>
