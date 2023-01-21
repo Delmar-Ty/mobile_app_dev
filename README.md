@@ -1,4 +1,4 @@
-# West-MEC Mobile Application
+# West-MEC Mobile Application README.md
 
 ## By Delmar Schrock, Annabelle Tran & Karisma Garduno
 
