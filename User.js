@@ -44,7 +44,7 @@ const UserScreen = ({navigation}) => {
                     <TextInput style = {styles.body.studentinformationboxes.box} value = {'Grade: 12'} editable={false}/>
                     <TextInput style = {styles.body.studentinformationboxes.box} value = {'Campus: Central'} editable={false}/>
                     <TextInput style = {styles.body.studentinformationboxes.box} value = {'Program: Coding'} editable={false}/>
-                    <TextInput style = {styles.body.studentinformationboxes.box} value = {'School Email: dschro206@gmail.com'} editable={false}/>
+                    <TextInput style = {styles.body.studentinformationboxes.box} value = {'School Email: dschro206@west-mec.org'} editable={false}/>
                     <TextInput style = {styles.body.studentinformationboxes.box} value = {"Parent's Phone Number: 347-284-8603"} editable={false}/>
                     <TextInput style = {styles.body.studentinformationboxes.box} value = {'Address: 1234 N Main st'} editable={false}/>
                 </View>

@@ -10,7 +10,7 @@ const LoginScreen = ({navigation}) => {
   const [passAuth, setPassAuth] = useState(false);
 
   const creds = {
-    email: 'dschro206@gmail.com',
+    email: 'dschro206@west-mec.org',
     pass: 'password'
   }
 

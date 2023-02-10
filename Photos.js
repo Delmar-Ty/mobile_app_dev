@@ -38,6 +38,7 @@ const PhotoScreen = ({navigation}) => {
 
         if (!result.canceled) {
             setImg(result.assets[0].uri);
+            alert('Image uploaded for review');
         }
     }
 

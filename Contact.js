@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View, ImageBackground, Image, Button, Pressable , TextInput} from 'react-native';
+import { useState } from 'react';
 import React from 'react';
 import bannerImg from './assets/blue-gradient.png'
 import home from './assets/home-icon.png'
@@ -10,6 +11,8 @@ import whitelogo from './assets/white-logo.png'
 import usericon from './assets/usericon.png'
 
 const ContactScreen = ({navigation}) => {
+    const [input, setInput] = useState('');
+
     return (
         <View style={styles.page}>
 
@@ -39,8 +42,17 @@ const ContactScreen = ({navigation}) => {
                 <View style = {styles.body.contactform}>
                     <View style = {styles.formquestions}>
                         <TextInput style = {styles.body.contactform.formquestions.subject} placeholder="Subject" />
-                        <TextInput style = {styles.body.contactform.formquestions.message}placeholder="Message" />
-                        <Pressable onPress={() => navigation.navigate('User', {name: 'User'})} style={styles.body.contactform.submit}>
+                        <TextInput style = {styles.body.contactform.formquestions.message}placeholder="Message" onChangeText={(e) => {
+                            setInput(e);
+                            console.log(input);
+                        }}/>
+                        <Pressable onPress={() => {
+                            if (input) {
+                                alert('Email Sent');
+                            } else {
+                                alert('Please enter a message');
+                            }
+                        }} style={styles.body.contactform.submit}>
                             <Text style = {styles.body.contactform.submit.text}>Send</Text>
                         </Pressable>
                     </View>
