@@ -6,13 +6,13 @@ import { text } from '@fortawesome/fontawesome-svg-core';
 
 
 const LoginScreen = ({navigation}) => {
-  const [emailAuth, setEmailAuth] = useState(false);
-  const [passAuth, setPassAuth] = useState(false);
+  // const [emailAuth, setEmailAuth] = useState(false);
+  // const [passAuth, setPassAuth] = useState(false);
 
-  const creds = {
-    email: 'dschro206@west-mec.org',
-    pass: 'password'
-  }
+  // const creds = {
+  //   email: 'dschro206@west-mec.org',
+  //   pass: 'password'
+  // }
 
   return ( 
     <View style={styles.container}>
@@ -57,12 +57,10 @@ const LoginScreen = ({navigation}) => {
 
           {/*Submit Button*/}
           <View style={submitButton.submitStyle}>
-            <Pressable style={submitButton.submit} onPress={() => {
-              if (emailAuth === true && passAuth === true) {
-                navigation.navigate('Dashboard', {name: 'Dashboard'})
-              } else {
-                alert('Incorrect Email or Password');
-              }
+            <Pressable style={submitButton.submit} onPress={async () => {
+              const res = await fetch('https://myapi-m4qx.onrender.com/apiPost', {method: 'POST', body: {msg: 'success'}});
+              const json = await res.json();
+              alert(json.msg);
             }}>
                 <Text style={submitButton.text}>
                   Submit
