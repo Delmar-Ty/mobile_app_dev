@@ -7,19 +7,21 @@ const StudentSignupScreen = ({navigation}) => (
     <View style={styles.container}>
         <ImageBackground source={bgImage} style={styles.image}>
         <View style = {styles.buttonStyle}>
-        <Text title='Sign Up' style = {styles.returnbutton} onPress={() => navigation.navigate('Signup', {name: 'Signup'})}>Back</Text>
+        <Text title='Sign Up' style = {styles.returnbutton} onPress={() => navigation.navigate('Home', {name: 'Home'})}>Back</Text>
             </View>
         <View style = {styles.form}>
-            <Text style = {styles.header}>Student Sign Up</Text>
+            <Text style = {styles.header}>Sign Up</Text>
             <View style = {styles.formquestions}>
               <TextInput style = {styles.question}placeholder="First Name" />
               <TextInput style = {styles.question}placeholder="Last Name" />
               <TextInput style = {styles.question}placeholder="Email" />
-              <TextInput style = {styles.question}placeholder="Address" />
+              <TextInput style = {styles.question}placeholder="Campus" />
+              <TextInput style = {styles.question}placeholder="Password" />
+              <TextInput style = {styles.question}placeholder="Confirm Password" />
             </View>
         </View>
         <View style = {styles.nextStyle}>
-          <Text style = {styles.next} onPress={() => navigation.navigate('StudentSignup2', {name: 'StudentSignup2'})}>Next</Text>
+          <Text style = {styles.next} onPress={() => navigation.navigate('Login', {name: 'Login'})}>Submit</Text>
         </View>
         {/* <View style = {styles.circlebox}>
           <Text style = {styles.circle}>a</Text>
@@ -66,7 +68,7 @@ const styles = StyleSheet.create({
     //Login form
       form: {
         alignItems: 'center',
-        paddingTop: 50,
+        paddingTop: 0,
       },
       header: {
         justifyContent: 'center',
@@ -95,7 +97,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginLeft: '25%',
-        marginTop: 200,
+        marginTop: 375,
 
       },
       next: {

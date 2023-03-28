@@ -26,7 +26,7 @@ const HomeScreen = ({navigation}) => (
 
             {/*Sign Up Button*/}
             <View style={buttonStyle.body}>
-                <Pressable style={buttonStyle.button} onPress={() => navigation.navigate('Signup', {name: 'Signup'})}>
+                <Pressable style={buttonStyle.button} onPress={() => navigation.navigate('StudentSignup', {name: 'StudentSignup'})}>
                     <Text style={buttonStyle.text}>
                         Sign Up
                     </Text>
