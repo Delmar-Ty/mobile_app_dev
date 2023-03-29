@@ -14,6 +14,9 @@ const LoginScreen = ({navigation}) => {
   //   pass: 'password'
   // }
 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   return ( 
     <View style={styles.container}>
         <ImageBackground source={bgImage} style={bgStyle.image}>
@@ -32,24 +35,15 @@ const LoginScreen = ({navigation}) => {
             <Text style = {styles.header}>Log In</Text>
             <View style = {styles.formquestions}>
               <TextInput style = {styles.question}placeholder="Enter Email" onChangeText={text => {
-                if (text === creds.email) {
-                  setEmailAuth(true);
-                } else {
-                  setEmailAuth(false);
-                }
+                setEmail(text);
               }} />
               <TextInput
                 style = {styles.question}
                 secureTextEntry={true}
                 placeholder="Enter Password"
                 onChangeText={text => {
-                  if (text === creds.pass) {
-                    setPassAuth(true);
-                  } else {
-                    setPassAuth(false);
-                  }
-                }}
-              />
+                  setPassword(text)
+              }}/>
             </View>
           </View>
 
@@ -58,9 +52,7 @@ const LoginScreen = ({navigation}) => {
           {/*Submit Button*/}
           <View style={submitButton.submitStyle}>
             <Pressable style={submitButton.submit} onPress={async () => {
-              const res = await fetch('https://myapi-m4qx.onrender.com/apiPost', {method: 'POST', body: {msg: 'success'}});
-              const json = await res.json();
-              alert(json.msg);
+              fetch('https://mongo-api-y91g.onrender.com/login', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({email: email, password: password})});
             }}>
                 <Text style={submitButton.text}>
                   Submit
