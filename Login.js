@@ -4,7 +4,6 @@ import { useState } from 'react';
 import bgImage from './assets/home-orange-gradient.png'
 import { text } from '@fortawesome/fontawesome-svg-core';
 
-
 const LoginScreen = ({navigation}) => {
   // const [emailAuth, setEmailAuth] = useState(false);
   // const [passAuth, setPassAuth] = useState(false);
@@ -52,7 +51,8 @@ const LoginScreen = ({navigation}) => {
           {/*Submit Button*/}
           <View style={submitButton.submitStyle}>
             <Pressable style={submitButton.submit} onPress={async () => {
-              fetch('https://mongo-api-y91g.onrender.com/login', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({email: email, password: password})});
+              fetch('https://mongo-api-y91g.onrender.com/signup', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({email: email, password: password})});
+              // fetch('https://mongo-api-y91g.onrender.com/api');
             }}>
                 <Text style={submitButton.text}>
                   Submit

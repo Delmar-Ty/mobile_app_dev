@@ -1,8 +1,7 @@
 import { StyleSheet, Text, View, ImageBackground, Image, Button, Pressable } from 'react-native';
 import React from 'react';
-import bgImage from './assets/home-orange-gradient.png'
-import logoImage from './assets/west-mec-logo.png'
-
+import bgImage from './assets/home-orange-gradient.png';
+import logoImage from './assets/west-mec-logo.png';
 
 const HomeScreen = ({navigation}) => ( 
     <View style={styles.container}>

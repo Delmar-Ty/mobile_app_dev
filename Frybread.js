@@ -42,7 +42,7 @@ const FrybreadScreen = ({navigation}) => {
                     <Text style = {styles.body.item.infoinfo}>
                     A fry bread fundraiser is being organized by the aviation class. The proceeds from the fundraiser will be used to purchase new equipment for the class. The fry bread will be made fresh on the day of the event and will be sold for $3 per plate. 
                     </Text>    
-                    <Text style = {styles.body.item.infowhen}>January 23rd, 25th, and 27th - 1:00pm - 5:00pm</Text>
+                    <Text style = {styles.body.item.infowhen}>April 10th and 11th- 1:00pm - 5:00pm</Text>
                 </View>
                 </View>
             </View>

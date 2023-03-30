@@ -42,7 +42,7 @@ const ArrestScreen = ({navigation}) => {
                     <Text style = {styles.body.item.infoinfo}>
                     The Law and Public Safety class is organizing a unique fundraiser, where they will be conducting mock arrests. The mock arrests will be conducted by the students. The "arrested" individuals will then be "bailed out" by their friends and family through donations.
                     </Text>    
-                    <Text style = {styles.body.item.infowhen}>April 1st, during break times</Text>
+                    <Text style = {styles.body.item.infowhen}>April 14th, during break times</Text>
                 </View>
                 </View>
             </View>

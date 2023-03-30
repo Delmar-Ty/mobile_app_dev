@@ -35,7 +35,7 @@ const AssignmentScreen = ({navigation}) => {
             <View style={styles.body}>
                 <View style = {styles.body.assignmentsbox}>
                     <Text style = {styles.body.assignmentsbox.heading}>My Assignments</Text>
-                    <Text style = {styles.body.assignmentsbox.date}>January 21st, 2023</Text>
+                    <Text style = {styles.body.assignmentsbox.date}>April 4th, 2023</Text>
                     <View style = {styles.body.assignmentsbox.line}></View>
                     <View style = {styles.body.assignmentsbox.assignments}>
                         <Text style = {styles.body.assignmentsbox.assignments.information}>No Assignments Due Today</Text>

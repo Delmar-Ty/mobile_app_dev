@@ -42,7 +42,7 @@ const JeansScreen = ({navigation}) => {
                     <Text style = {styles.body.item.infoinfo}>
                     This is a Coding class specific fundraiser. Students have the option to "dress-down" and wear something besides the uniform black jeans by paying the fee of $1 on the days the fundraiser is occurring. Earnings will go to the upcoming FBLA competition.
                     </Text>    
-                    <Text style = {styles.body.item.infowhen}>February 3rd, 10th, 17th, and 24th</Text>
+                    <Text style = {styles.body.item.infowhen}>April 3rd, 10th, 17th, and 24th</Text>
                 </View>
                 </View>
             </View>

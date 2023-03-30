@@ -35,28 +35,37 @@ const CalendarScreen = ({navigation}) => {
             {/*Body*/}
             <View style={styles.body}>
                     <View style = {styles.body.item}>
-                        <Text style = {styles.body.item.infotitle}>January</Text>
+                        <Text style = {styles.body.item.infotitle}>April</Text>
                         <View style = {styles.body.item.calendarcontainer}>
                             <View style = {styles.body.item.calendarcontainer.daynames}>
                                 <Text style = {styles.body.item.calendarcontainer.daynames.names}>S M T W T F S</Text>
                             </View>
                             <View style = {styles.body.item.calendarcontainer.daynumbers}>
-                                <Text style = {styles.body.item.calendarcontainer.daynumbers.numbers}>15 16 17 18 19 20 21</Text>
+                                <Text style = {styles.body.item.calendarcontainer.daynumbers.numbers}>2 3 4 5 6 7 8</Text>
                             </View>
                             <View style = {styles.body.item.calendarcontainer.dayevents}>
                                 <View style = {styles.body.item.calendarcontainer.dayevents.event}>
-                                    <Text style = {styles.body.item.calendarcontainer.dayevents.event.day}>January 16th, 2023</Text>
+                                    <Text style = {styles.body.item.calendarcontainer.dayevents.event.day}>April 3rd, 2023</Text>
                                     <View style = {styles.body.item.calendarcontainer.dayevents.event.eventbox}>
-                                        <Text>Martin Luther King Jr. Day - No School</Text>
+                                        <Text>West-MEC Coding - FBLA State</Text>
                                     </View>
                                 </View>
                                 <View style = {styles.body.item.calendarcontainer.dayevents.event}>
-                                    <Text style = {styles.body.item.calendarcontainer.dayevents.event.day}>January 21st, 2023</Text>
+                                    <Text style = {styles.body.item.calendarcontainer.dayevents.event.day}>April 4th, 2023</Text>
                                     <View style = {styles.body.item.calendarcontainer.dayevents.event.eventbox}>
-                                        <Text>West-MEC Coding FBLA Regionals</Text>
+                                        <Text>West-MEC Coding - FBLA State</Text>
                                     </View>
+                                </View>
+                                <View style = {styles.body.item.calendarcontainer.dayevents.event}>
+                                    <Text style = {styles.body.item.calendarcontainer.dayevents.event.day}>April 5th, 2023</Text>
                                     <View style = {styles.body.item.calendarcontainer.dayevents.event.eventbox}>
-                                        <Text>Aviation/Avionics Flight Trial</Text>
+                                        <Text>West-MEC Coding - FBLA State</Text>
+                                    </View>
+                                </View>
+                                <View style = {styles.body.item.calendarcontainer.dayevents.event}>
+                                    <Text style = {styles.body.item.calendarcontainer.dayevents.event.day}>April 7th, 2023</Text>
+                                    <View style = {styles.body.item.calendarcontainer.dayevents.event.eventbox}>
+                                        <Text>Professional Development - No School</Text>
                                     </View>
                                 </View>
                             </View>
@@ -194,7 +203,7 @@ const styles = StyleSheet.create({
                     height: '10%',
                     // backgroundColor: 'purple',
                     numbers:{
-                        letterSpacing: 5,
+                        letterSpacing: 11,
                         fontSize: 25,
                         justifyContent: 'center',
                         fontWeight: '600',
@@ -208,7 +217,7 @@ const styles = StyleSheet.create({
                     event:{
                         height: '25%',
                         width: '100%',
-                        marginTop: '10%',
+                        marginTop: '0%',
                         eventbox:{
                             backgroundColor: '#F57F20',
                             marginHorizontal: '5%',
