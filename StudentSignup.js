@@ -2,8 +2,25 @@ import { StyleSheet, Text, View, ImageBackground, Button, TextInput } from 'reac
 import React from 'react';
 import bgImage from './assets/home-orange-gradient.png'
 
+const campuses = ["Central", "Southwest", "Northeast", "Northwest"]
 
-const StudentSignupScreen = ({navigation}) => ( 
+
+const StudentSignupScreen = ({navigation}) => {
+  const nameXp = /(\d|\W)/g;
+  const emailXp = /(\w+@)(\w+)([-\.]\w+)?\.(org|net|com)/;
+
+  let formErr = {
+    first: false,
+    last: false,
+    email: false,
+    campus: false,
+    password: false,
+    confirm: true
+  };
+
+  let password = '';
+
+  return (
     <View style={styles.container}>
         <ImageBackground source={bgImage} style={styles.image}>
         <View style = {styles.buttonStyle}>
@@ -12,12 +29,65 @@ const StudentSignupScreen = ({navigation}) => (
         <View style = {styles.form}>
             <Text style = {styles.header}>Sign Up</Text>
             <View style = {styles.formquestions}>
-              <TextInput style = {styles.question}placeholder="First Name" />
-              <TextInput style = {styles.question}placeholder="Last Name" />
-              <TextInput style = {styles.question}placeholder="Email" />
-              <TextInput style = {styles.question}placeholder="Campus" />
-              <TextInput style = {styles.question}placeholder="Password" />
-              <TextInput style = {styles.question}placeholder="Confirm Password" />
+              <TextInput style = {styles.question}placeholder="First Name" onChange={(text) => {
+                if (text.match(nameXp)) {
+                  formErr.first = true;
+                } else {
+                  formErr.first = false;
+                }
+              }}/>
+              <TextInput style = {styles.question}placeholder="Last Name" onChange={(text) => {
+                if (text.match(nameXp)) {
+                  formErr.last = true;
+                } else {
+                  formErr.last = false;
+                }
+              }}/>
+              <TextInput style = {styles.question}placeholder="Email" onChange={(text) => {
+                if (!text.match(emailXp)) {
+                  formErr.email = true;
+                } else {
+                  formErr.email = false;
+                }
+              }}/>
+              <TextInput style={styles.question} placeholder={'Campus'} onChange={(text) => {
+                let campus = text.toUpperCase();
+                switch (campus) {
+                  case 'CENTRAL':
+                    formErr.campus = false;
+                    break;
+                  
+                  case 'NORTHWEST':
+                    formErr.campus = false;
+                    break;
+                  
+                  case 'NORTHEAST':
+                    formErr.campus = false;
+                    break;
+
+                  case 'SOUTHWEST':
+                    formErr.campus = false;
+                    break;
+
+                  default:
+                    formErr.campus = true;
+                }
+              }}/>
+              <TextInput style = {styles.question}placeholder="Password" onChange={(text) => {
+                password = text;
+                if (text.length < 8) {
+                  formErr.password = true;
+                } else {
+                  formErr.password = false;
+                }
+              }}/>
+              <TextInput style = {styles.question}placeholder="Confirm Password" onChange={(text) => {
+                if (password !== text) {
+                  formErr.confirm = true;
+                } else {
+                  formErr.confirm = false;
+                }
+              }}/>
             </View>
         </View>
         <View style = {styles.nextStyle}>
@@ -32,7 +102,8 @@ const StudentSignupScreen = ({navigation}) => (
         
         </ImageBackground>
     </View>
-);
+  );
+};
 
 const styles = StyleSheet.create({
   //main container

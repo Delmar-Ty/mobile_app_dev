@@ -51,7 +51,10 @@ const LoginScreen = ({navigation}) => {
           {/*Submit Button*/}
           <View style={submitButton.submitStyle}>
             <Pressable style={submitButton.submit} onPress={async () => {
-              fetch('https://mongo-api-y91g.onrender.com/signup', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({email: email, password: password})});
+              const res = await fetch('https://mongo-api-y91g.onrender.com/signup', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({email: email})});
+              const resJ = await res.json();
+              const msg = resJ.msg;
+              alert(msg);
               // fetch('https://mongo-api-y91g.onrender.com/api');
             }}>
                 <Text style={submitButton.text}>
