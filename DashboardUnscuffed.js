@@ -10,8 +10,23 @@ import whitelogo from './assets/white-logo.png'
 import usericon from './assets/usericon.png'
 import campus from './assets/central-campus-building-a.png'
 import ExternalLink from './externalLink.js';
+import { useEffect, useState } from 'react';
 
-const DashboardUnscuffed = ({navigation}) => {
+const DashboardUnscuffed = ({navigation, route}) => {
+    const id = route.params.id;
+
+    const [user, setUser] = useState({});
+    
+    useEffect(() => {
+        const userData = async () => {
+            const res = await fetch(`https://mongo-api-y91g.onrender.com/user/${id}`);
+            const data = await res.json();
+            console.log(data);
+            setUser(data);
+        }
+        userData();
+    }, []);
+
     return (
         <View style={styles.page}>
 

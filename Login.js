@@ -3,18 +3,14 @@ import React from 'react';
 import { useState } from 'react';
 import bgImage from './assets/home-orange-gradient.png'
 import { text } from '@fortawesome/fontawesome-svg-core';
+import * as Device from 'expo-device';
 
 const LoginScreen = ({navigation}) => {
-  // const [emailAuth, setEmailAuth] = useState(false);
-  // const [passAuth, setPassAuth] = useState(false);
 
-  // const creds = {
-  //   email: 'dschro206@west-mec.org',
-  //   pass: 'password'
-  // }
+  const os = Device.osName;
 
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [pass, setPass] = useState('');
 
   return ( 
     <View style={styles.container}>
@@ -41,7 +37,7 @@ const LoginScreen = ({navigation}) => {
                 secureTextEntry={true}
                 placeholder="Enter Password"
                 onChangeText={text => {
-                  setPassword(text)
+                  setPass(text)
               }}/>
             </View>
           </View>
@@ -51,11 +47,13 @@ const LoginScreen = ({navigation}) => {
           {/*Submit Button*/}
           <View style={submitButton.submitStyle}>
             <Pressable style={submitButton.submit} onPress={async () => {
-              const res = await fetch('https://mongo-api-y91g.onrender.com/signup', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({email: email})});
+              const res = await fetch('https://mongo-api-y91g.onrender.com/login', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({email: email, password: pass, device: os})});
               const resJ = await res.json();
-              const msg = resJ.msg;
-              alert(msg);
-              // fetch('https://mongo-api-y91g.onrender.com/api');
+              if (!resJ.auth) {
+                alert(resJ.msg);
+              } else {
+                navigation.navigate('DashboardUnscuffed', {id: resJ.id})
+              }
             }}>
                 <Text style={submitButton.text}>
                   Submit
