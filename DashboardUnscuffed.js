@@ -21,7 +21,6 @@ const DashboardUnscuffed = ({navigation, route}) => {
         const userData = async () => {
             const res = await fetch(`https://mongo-api-y91g.onrender.com/user/${id}`);
             const data = await res.json();
-            console.log(data);
             setUser(data);
         }
         userData();
@@ -40,7 +39,7 @@ const DashboardUnscuffed = ({navigation, route}) => {
                             </Pressable>
                         </View>
                         <View style={styles.header.bgImg.container.user.body}>
-                            <Pressable onPress={() => navigation.navigate('User', {name: 'User'})} style={styles.header.bgImg.container.user.button}>
+                            <Pressable onPress={() => navigation.navigate('User', user)} style={styles.header.bgImg.container.user.button}>
                                 <Image source={usericon} style={styles.header.bgImg.container.user.img}/>
                             </Pressable>
                         </View> 

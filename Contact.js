@@ -9,9 +9,26 @@ import camera from './assets/camera-icon.png'
 import phone from './assets/phone-icon.png'
 import whitelogo from './assets/white-logo.png'
 import usericon from './assets/usericon.png'
+import Email from './smtp.js';
 
 const ContactScreen = ({navigation}) => {
-    const [input, setInput] = useState('');
+    const sendEmail = () => {
+        Email.send({
+            SecureToken : '17838ead-6bed-4fa7-a7e4-8f542faf9bae',
+            To : 'dschro206@west-mec.org',
+            From : 'reliablesource13@gmail.com',
+            Subject : subject,
+            Body : `
+            Message: ${msg}
+            `
+        }).then(() => {
+            alert('Email Sent');
+            navigation.navigate('DashboardUnscuffed');
+        });
+    }
+
+    const [subject, setSubject] = useState('');
+    const [msg, setMsg] = useState('');
 
     return (
         <View style={styles.page}>
@@ -41,16 +58,15 @@ const ContactScreen = ({navigation}) => {
                 </View>
                 <View style = {styles.body.contactform}>
                     <View style = {styles.formquestions}>
-                        <TextInput style = {styles.body.contactform.formquestions.subject} placeholder="Subject" />
-                        <TextInput style = {styles.body.contactform.formquestions.message}placeholder="Message" onChangeText={(e) => {
-                            setInput(e);
-                            console.log(input);
+                        <TextInput style = {styles.body.contactform.formquestions.subject} placeholder="Subject" onChangeText={(text) => {
+                            setSubject(text);
+                        }}/>
+                        <TextInput style = {styles.body.contactform.formquestions.message}placeholder="Message" onChangeText={(text) => {
+                            setMsg(text);
                         }}/>
                         <Pressable onPress={() => {
-                            if (input) {
-                                alert('Email Sent');
-                            } else {
-                                alert('Please enter a message');
+                            if (subject !== '' && msg !== '') {
+                                sendEmail();
                             }
                         }} style={styles.body.contactform.submit}>
                             <Text style = {styles.body.contactform.submit.text}>Send</Text>
@@ -193,6 +209,8 @@ const styles = StyleSheet.create({
                 marginTop: '5%',
                 padding: '5%',
                 borderRadius: 10,
+                justifyContent: 'center',
+                alignItems: 'center',
                 text:{
                     textAlign: 'center',
                 }

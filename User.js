@@ -8,8 +8,12 @@ import camera from './assets/camera-icon.png'
 import phone from './assets/phone-icon.png'
 import whitelogo from './assets/white-logo.png'
 import usericon from './assets/usericon.png'
+import { useState } from 'react';
 
-const UserScreen = ({navigation}) => {
+const UserScreen = ({navigation, route}) => {
+
+    const [user, setUser] = useState(route.params);
+    
     return (
         <View style={styles.page}>
 
@@ -34,19 +38,27 @@ const UserScreen = ({navigation}) => {
             {/*Body*/}
             <View style={styles.body}>
                 <View style = {styles.body.studentinfo}>
-                    <Text style = {styles.body.studentinfo.title}>Student Info</Text>
+                    <Text style = {styles.body.studentinfo.title}>Account Info</Text>
                     <View style={styles.body.studentinfo.studentpic}>
                         <Image source={usericon} style={styles.body.studentinfo.studentpic.img}/>
                     </View>
-                    <Text style = {styles.body.studentinfo.name}>Delmar Schrock</Text>
+                    <Text style = {styles.body.studentinfo.name}>{`${user.fName} ${user.lName}`}</Text>
                 </View>
                 <View style = {styles.body.studentinformationboxes}>
-                    <TextInput style = {styles.body.studentinformationboxes.box} value = {'Grade: 12'} editable={false}/>
-                    <TextInput style = {styles.body.studentinformationboxes.box} value = {'Campus: Central'} editable={false}/>
-                    <TextInput style = {styles.body.studentinformationboxes.box} value = {'Program: Coding'} editable={false}/>
-                    <TextInput style = {styles.body.studentinformationboxes.box} value = {'School Email: dschro206@west-mec.org'} editable={false}/>
-                    <TextInput style = {styles.body.studentinformationboxes.box} value = {"Parent's Phone Number: 347-284-8603"} editable={false}/>
-                    <TextInput style = {styles.body.studentinformationboxes.box} value = {'Address: 1234 N Main st'} editable={false}/>
+                    <TextInput style = {styles.body.studentinformationboxes.box} value = {`Campus: ${user.campus}`} editable={false}/>
+                    <TextInput style = {styles.body.studentinformationboxes.box} value = {`Email: ${user.email}`} editable={false}/>
+                </View>
+                <View style={styles.body.logout}>
+                    <View style={styles.body.logout.lougoutBtn}>
+                        <Pressable style={styles.body.logout.lougoutBtn.btn} onPress={async () => {
+                            const res = await fetch('https://mongo-api-y91g.onrender.com/logout', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ id: user._id.toString() }) });
+                            navigation.navigate('Home', { name: 'Home' });
+                        }}>
+                            <Text style={styles.body.logout.lougoutBtn.btn.text}>
+                                Log Out
+                            </Text>
+                        </Pressable>
+                    </View>
                 </View>
             </View>
 
@@ -134,22 +146,24 @@ const styles = StyleSheet.create({
     body: {
         width: '100%',
         height: '70%',
+        alignItems: 'center',
         studentinfo:{
             width: '100%',
             height: '40%',
             justifyContent: 'center',
             alignItems: 'center',
             studentpic:{
+                width: '80%',
+                height: '80%',
                 backgroundColor: 'gray',
                 aspectRatio: 1/1,
                 borderRadius: 1000,
-                padding: '2.5%',
                 justifyContent: 'center',
                 alignItems: 'center',
                 img:{
                     aspectRatio: 1/1,
-                    width: '70%',
-                    height: '70%',
+                    width: '85%',
+                    height: '85%',
                     borderRadius: 1000,
                 }
             },
@@ -164,7 +178,6 @@ const styles = StyleSheet.create({
         },
         studentinformationboxes:{
             width: '100%',
-            height: '60%',
             box:{
                 fontSize: 17.5,
                 paddingVertical: '3%',
@@ -173,6 +186,29 @@ const styles = StyleSheet.create({
                 color: '#F57F20',
                 fontWeight: '600',
                 paddingLeft: '5%'
+            }
+        },
+        logout: {
+            width: '100%',
+            height: '45%',
+            justifyContent: 'center',
+            alignItems: 'center',
+            lougoutBtn: {
+                width: '60%',
+                height: '25%',
+                btn: {
+                    width: '100%',
+                    height: '100%',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderColor: 'black',
+                    borderWidth: 2,
+                    borderRadius: 5,
+                    text: {
+                        color: 'black',
+                        fontSize: 25,
+                    }
+                }
             }
         }
     },

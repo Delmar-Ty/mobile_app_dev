@@ -2,8 +2,23 @@ import { StyleSheet, Text, View, ImageBackground, Image, Button, Pressable } fro
 import React from 'react';
 import bgImage from './assets/home-orange-gradient.png';
 import logoImage from './assets/west-mec-logo.png';
+import { useEffect } from 'react';
+import * as Device from 'expo-device';
 
-const HomeScreen = ({navigation}) => ( 
+const HomeScreen = ({navigation}) => {
+
+  useEffect(() => {
+    const isLogged = async () => {
+      const res = await fetch('https://mongo-api-y91g.onrender.com/deviceLogged', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ device: Device.osName }) });
+      const data = await res.json();
+      if (data.success) {
+        navigation.navigate('DashboardUnscuffed', { id: data.id });
+      }
+    }
+    isLogged();
+  });
+
+  return ( 
     <View style={styles.container}>
         <ImageBackground source={bgImage} style={bgStyle.image}>
 
@@ -33,11 +48,12 @@ const HomeScreen = ({navigation}) => (
             </View>
 
             {/*Licensing Terms & Conditions*/}
-            <Text onPress={() => navigation.navigate('DashboardUnscuffed', {name: 'DashboardUnscuffed'})} style = {styles.licensinginfo}>Licensing Terms & Conditions</Text>
+            <Text onPress={() => navigation.navigate('Licensing', {name: 'Licensing'})} style = {styles.licensinginfo}>Licensing Terms & Conditions</Text>
           </View>
         </ImageBackground>
     </View>
-);
+  );
+}
 
 const styles = StyleSheet.create({
 //main container

@@ -4,12 +4,16 @@ import bgImage from './assets/home-orange-gradient.png'
 import logoImage from './assets/west-mec-logo.png'
 
 
-const HomeScreen = ({navigation}) => ( 
+const Licensing = ({navigation}) => {
+
+  const DEV = 'Developer'
+
+  return ( 
     <View style={styles.container}>
         <ImageBackground source={bgImage} style={bgStyle.image}>
           <Text style={bgStyle.image.text}>
 
-          var DEV = "Developer"
+          
 
 
 const Terms = `ACCEPTANCE OF TERMS
@@ -49,6 +53,7 @@ export default Terms
         </ImageBackground>
     </View>
 );
+}
 
 const styles = StyleSheet.create({
 //main container
@@ -123,4 +128,4 @@ const logoStyle = StyleSheet.create({
   }
 });
 
-export default HomeScreen;
+export default Licensing;

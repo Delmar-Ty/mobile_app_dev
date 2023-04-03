@@ -20,6 +20,7 @@ import AssignmentScreen from './Assignments.js';
 import ParentSignupScreen2 from './ParentSignup2.js';
 import TeacherSignupScreen2 from './TeacherSignup2.js';
 import UserScreen from './User.js';
+import Licensing from './licensing.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -161,6 +162,13 @@ const App = () => (
             <Stack.Screen
             name='User'
             component={UserScreen}
+            options = {{
+              headerShown: false
+            }}
+            />
+            <Stack.Screen
+            name='Licensing'
+            component={Licensing}
             options = {{
               headerShown: false
             }}
