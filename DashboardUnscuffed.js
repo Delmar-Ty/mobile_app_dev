@@ -13,18 +13,9 @@ import ExternalLink from './externalLink.js';
 import { useEffect, useState } from 'react';
 
 const DashboardUnscuffed = ({navigation, route}) => {
-    const id = route.params.id;
+    const data = route.params.data;
 
-    const [user, setUser] = useState({});
-    
-    useEffect(() => {
-        const userData = async () => {
-            const res = await fetch(`https://mongo-api-y91g.onrender.com/user/${id}`);
-            const data = await res.json();
-            setUser(data);
-        }
-        userData();
-    }, []);
+    const [user, setUser] = useState(data);
 
     return (
         <View style={styles.page}>
@@ -34,7 +25,7 @@ const DashboardUnscuffed = ({navigation, route}) => {
                 <ImageBackground style={styles.header.bgImg} source={bannerImg}>
                     <View style={styles.header.bgImg.container}>
                         <View style={styles.header.bgImg.container.logo}>
-                            <Pressable onPress={() => navigation.navigate('Home', {name: 'Home'})}>
+                            <Pressable>
                                 <Image style={styles.header.bgImg.container.logo.img} source={whitelogo}/>
                             </Pressable>
                         </View>
@@ -58,13 +49,13 @@ const DashboardUnscuffed = ({navigation, route}) => {
                 <View style = {styles.body.campusnews}>
                     <Text style = {styles.body.campusnews.title}>Current Events</Text>
                     <View style = {styles.body.campusnews.line}></View>
-                    <Pressable onPress={() => navigation.navigate('Frybread', {name: 'Frybread'})} style={styles.body.campusnews.newsitem}>
+                    <Pressable onPress={() => navigation.navigate('Frybread', user)} style={styles.body.campusnews.newsitem}>
                         <Text>Aviation Fry Bread Fundraiser</Text>
                     </Pressable>
-                    <Pressable onPress={() => navigation.navigate('Jeans', {name: 'Jeans'})} style={styles.body.campusnews.newsitem}>
+                    <Pressable onPress={() => navigation.navigate('Jeans', user)} style={styles.body.campusnews.newsitem}>
                         <Text>Coding Bucket Jeans Fundraiser</Text>
                     </Pressable>
-                    <Pressable onPress={() => navigation.navigate('Arrests', {name: 'Arrests'})} style={styles.body.campusnews.newsitem}>
+                    <Pressable onPress={() => navigation.navigate('Arrests', user)} style={styles.body.campusnews.newsitem}>
                         <Text>Law & Public Safety Arrest Fundraiser</Text>
                     </Pressable>
                     <View style = {styles.body.campusnews.line}></View>
@@ -81,27 +72,27 @@ const DashboardUnscuffed = ({navigation, route}) => {
                 <ImageBackground style={styles.footer.bgImg} source={bannerImg}>
                     <View style={styles.footer.bgImg.container}>
                         <View style={styles.footer.bgImg.container.buttonStyle.body}>
-                            <Pressable onPress={() => navigation.navigate('DashboardUnscuffed', {name: 'DashboardUnscuffed'})} style={styles.footer.bgImg.container.buttonStyle.button}>
+                            <Pressable onPress={() => navigation.navigate('DashboardUnscuffed', user)} style={styles.footer.bgImg.container.buttonStyle.button}>
                                 <Image source={home} style={styles.footer.bgImg.container.buttonStyle.img}/>
                             </Pressable>
                         </View>
                         <View style={styles.footer.bgImg.container.buttonStyle.body}>
-                            <Pressable onPress={() => navigation.navigate('Calendar', {name: 'Calendar'})} style={styles.footer.bgImg.container.buttonStyle.button}>
+                            <Pressable onPress={() => navigation.navigate('Calendar', user)} style={styles.footer.bgImg.container.buttonStyle.button}>
                                 <Image source={calendar} style={styles.footer.bgImg.container.buttonStyle.img}/>
                             </Pressable>
                         </View>
                         <View style={styles.footer.bgImg.container.buttonStyle.body}>
-                            <Pressable onPress={() => navigation.navigate('Photos', {name: 'Photos'})} style={styles.footer.bgImg.container.buttonStyle.button}>
+                            <Pressable onPress={() => navigation.navigate('Photos', user)} style={styles.footer.bgImg.container.buttonStyle.button}>
                                 <Image source={camera} style={styles.footer.bgImg.container.buttonStyle.img}/>
                             </Pressable>
                         </View>
                         <View style={styles.footer.bgImg.container.buttonStyle.body}>
-                            <Pressable onPress={() => navigation.navigate('Contact', {name: 'Contact'})} style={styles.footer.bgImg.container.buttonStyle.button}>
+                            <Pressable onPress={() => navigation.navigate('Contact', user)} style={styles.footer.bgImg.container.buttonStyle.button}>
                                 <Image source={phone} style={styles.footer.bgImg.container.buttonStyle.img}/>
                             </Pressable>
                         </View>
                         <View style={styles.footer.bgImg.container.buttonStyle.body}>
-                            <Pressable onPress={() => navigation.navigate('Assignments', {name: 'Assignments'})} style={styles.footer.bgImg.container.buttonStyle.button}>
+                            <Pressable onPress={() => navigation.navigate('Assignments', user)} style={styles.footer.bgImg.container.buttonStyle.button}>
                                 <Image source={assignments} style={styles.footer.bgImg.container.buttonStyle.img}/>
                             </Pressable>
                         </View>

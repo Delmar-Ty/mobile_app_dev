@@ -34,9 +34,9 @@ const StudentSignupScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
         <ImageBackground source={bgImage} style={styles.image}>
-        <View style = {styles.buttonStyle}>
-        <Text title='Sign Up' style = {styles.returnbutton} onPress={() => navigation.navigate('Home', {name: 'Home'})}>Back</Text>
-            </View>
+        <Pressable style = {styles.buttonStyle} onPress={() => navigation.navigate('Home', {name: 'Home'})}>
+          <Text title='Sign Up' style = {styles.returnbutton}>Back</Text>
+        </Pressable>
         <View style = {styles.form}>
             <Text style = {styles.header}>Sign Up</Text>
             <View style = {styles.formquestions}>
@@ -170,14 +170,11 @@ const styles = StyleSheet.create({
         borderRadius: 5,
       },
       returnbutton: {
-        width: '100%',
-        height: '100%',
         justifyContent: 'center',
         alignItems: 'center',
         textAlign: 'center',
         fontSize: 15,
         fontWeight: '500',
-        padding: '10%'
       },
     //Login form
       form: {

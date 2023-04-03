@@ -9,8 +9,12 @@ import phone from './assets/phone-icon.png'
 import whitelogo from './assets/white-logo.png'
 import usericon from './assets/usericon.png'
 import calendarpic from './assets/calendar.png'
+import { useState } from 'react'
 
-const CalendarScreen = ({navigation}) => {
+const CalendarScreen = ({navigation, route}) => {
+
+    const [user, setUser] = useState(route.params);
+
     return (
         <View style={styles.page}>
 
@@ -19,12 +23,12 @@ const CalendarScreen = ({navigation}) => {
                 <ImageBackground style={styles.header.bgImg} source={bannerImg}>
                     <View style={styles.header.bgImg.container}>
                         <View style={styles.header.bgImg.container.logo}>
-                            <Pressable onPress={() => navigation.navigate('Home', {name: 'Home'})}>
+                            <Pressable>
                                 <Image style={styles.header.bgImg.container.logo.img} source={whitelogo}/>
                             </Pressable>
                         </View>
                         <View style={styles.header.bgImg.container.user.body}>
-                            <Pressable onPress={() => navigation.navigate('User', {name: 'User'})} style={styles.header.bgImg.container.user.button}>
+                            <Pressable onPress={() => navigation.navigate('User', user)} style={styles.header.bgImg.container.user.button}>
                                 <Image source={usericon} style={styles.header.bgImg.container.user.img}/>
                             </Pressable>
                         </View> 
@@ -35,7 +39,9 @@ const CalendarScreen = ({navigation}) => {
             {/*Body*/}
             <View style={styles.body}>
                     <View style = {styles.body.item}>
-                        <Text style = {styles.body.item.infotitle}>April</Text>
+                        <View style={styles.body.item.infotitle}>
+                            <Text style = {styles.body.item.infotitle.text}>April</Text>
+                        </View>
                         <View style = {styles.body.item.calendarcontainer}>
                             <View style = {styles.body.item.calendarcontainer.daynames}>
                                 <Text style = {styles.body.item.calendarcontainer.daynames.names}>S M T W T F S</Text>
@@ -82,27 +88,27 @@ const CalendarScreen = ({navigation}) => {
                 <ImageBackground style={styles.footer.bgImg} source={bannerImg}>
                     <View style={styles.footer.bgImg.container}>
                         <View style={styles.footer.bgImg.container.buttonStyle.body}>
-                            <Pressable onPress={() => navigation.navigate('DashboardUnscuffed', {name: 'DashboardUnscuffed'})} style={styles.footer.bgImg.container.buttonStyle.button}>
+                            <Pressable onPress={() => navigation.navigate('DashboardUnscuffed', user)} style={styles.footer.bgImg.container.buttonStyle.button}>
                                 <Image source={home} style={styles.footer.bgImg.container.buttonStyle.img}/>
                             </Pressable>
                         </View>
                         <View style={styles.footer.bgImg.container.buttonStyle.body}>
-                            <Pressable onPress={() => navigation.navigate('Calendar', {name: 'Calendar'})} style={styles.footer.bgImg.container.buttonStyle.button}>
+                            <Pressable onPress={() => navigation.navigate('Calendar', user)} style={styles.footer.bgImg.container.buttonStyle.button}>
                                 <Image source={calendar} style={styles.footer.bgImg.container.buttonStyle.img}/>
                             </Pressable>
                         </View>
                         <View style={styles.footer.bgImg.container.buttonStyle.body}>
-                            <Pressable onPress={() => navigation.navigate('Photos', {name: 'Photos'})} style={styles.footer.bgImg.container.buttonStyle.button}>
+                            <Pressable onPress={() => navigation.navigate('Photos', user)} style={styles.footer.bgImg.container.buttonStyle.button}>
                                 <Image source={camera} style={styles.footer.bgImg.container.buttonStyle.img}/>
                             </Pressable>
                         </View>
                         <View style={styles.footer.bgImg.container.buttonStyle.body}>
-                            <Pressable onPress={() => navigation.navigate('Contact', {name: 'Contact'})} style={styles.footer.bgImg.container.buttonStyle.button}>
+                            <Pressable onPress={() => navigation.navigate('Contact', user)} style={styles.footer.bgImg.container.buttonStyle.button}>
                                 <Image source={phone} style={styles.footer.bgImg.container.buttonStyle.img}/>
                             </Pressable>
                         </View>
                         <View style={styles.footer.bgImg.container.buttonStyle.body}>
-                            <Pressable onPress={() => navigation.navigate('Assignments', {name: 'Assignments'})} style={styles.footer.bgImg.container.buttonStyle.button}>
+                            <Pressable onPress={() => navigation.navigate('Assignments', user)} style={styles.footer.bgImg.container.buttonStyle.button}>
                                 <Image source={assignments} style={styles.footer.bgImg.container.buttonStyle.img}/>
                             </Pressable>
                         </View>
@@ -171,13 +177,15 @@ const styles = StyleSheet.create({
             infotitle:{
                 width: '50%',
                 height: '10%',
-                paddingTop: '2.5%',
                 justifyContent: 'center',
-                textAlign: 'center',
-                fontSize: 25,
+                alignItems: 'center',
                 backgroundColor: '#F57F20',
                 borderRadius: 5,
-                fontWeight: '600'
+                text: {
+                    textAlign: 'center',
+                    fontSize: 25,
+                    fontWeight: '600',
+                }
             },
             calendarcontainer:{
                 width: '90%',

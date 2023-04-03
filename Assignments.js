@@ -8,8 +8,12 @@ import camera from './assets/camera-icon.png'
 import phone from './assets/phone-icon.png'
 import whitelogo from './assets/white-logo.png'
 import usericon from './assets/usericon.png'
+import { useState } from 'react';
 
-const AssignmentScreen = ({navigation}) => {
+const AssignmentScreen = ({navigation, route}) => {
+
+    const [user, setUser] = useState(route.params);
+
     return (
         <View style={styles.page}>
 
@@ -18,12 +22,12 @@ const AssignmentScreen = ({navigation}) => {
                 <ImageBackground style={styles.header.bgImg} source={bannerImg}>
                     <View style={styles.header.bgImg.container}>
                         <View style={styles.header.bgImg.container.logo}>
-                            <Pressable onPress={() => navigation.navigate('Home', {name: 'Home'})}>
+                            <Pressable>
                                 <Image style={styles.header.bgImg.container.logo.img} source={whitelogo}/>
                             </Pressable>
                         </View>
                         <View style={styles.header.bgImg.container.user.body}>
-                            <Pressable onPress={() => navigation.navigate('User', {name: 'User'})} style={styles.header.bgImg.container.user.button}>
+                            <Pressable onPress={() => navigation.navigate('User', user)} style={styles.header.bgImg.container.user.button}>
                                 <Image source={usericon} style={styles.header.bgImg.container.user.img}/>
                             </Pressable>
                         </View> 
@@ -34,7 +38,9 @@ const AssignmentScreen = ({navigation}) => {
             {/*Body*/}
             <View style={styles.body}>
                 <View style = {styles.body.assignmentsbox}>
-                    <Text style = {styles.body.assignmentsbox.heading}>My Assignments</Text>
+                    <View style={styles.body.assignmentsbox.heading}>
+                        <Text style = {styles.body.assignmentsbox.heading.text}>My Assignments</Text>
+                    </View>
                     <Text style = {styles.body.assignmentsbox.date}>April 4th, 2023</Text>
                     <View style = {styles.body.assignmentsbox.line}></View>
                     <View style = {styles.body.assignmentsbox.assignments}>
@@ -49,27 +55,27 @@ const AssignmentScreen = ({navigation}) => {
                 <ImageBackground style={styles.footer.bgImg} source={bannerImg}>
                     <View style={styles.footer.bgImg.container}>
                         <View style={styles.footer.bgImg.container.buttonStyle.body}>
-                            <Pressable onPress={() => navigation.navigate('DashboardUnscuffed', {name: 'DashboardUnscuffed'})} style={styles.footer.bgImg.container.buttonStyle.button}>
+                            <Pressable onPress={() => navigation.navigate('DashboardUnscuffed', user)} style={styles.footer.bgImg.container.buttonStyle.button}>
                                 <Image source={home} style={styles.footer.bgImg.container.buttonStyle.img}/>
                             </Pressable>
                         </View>
                         <View style={styles.footer.bgImg.container.buttonStyle.body}>
-                            <Pressable onPress={() => navigation.navigate('Calendar', {name: 'Calendar'})} style={styles.footer.bgImg.container.buttonStyle.button}>
+                            <Pressable onPress={() => navigation.navigate('Calendar', user)} style={styles.footer.bgImg.container.buttonStyle.button}>
                                 <Image source={calendar} style={styles.footer.bgImg.container.buttonStyle.img}/>
                             </Pressable>
                         </View>
                         <View style={styles.footer.bgImg.container.buttonStyle.body}>
-                            <Pressable onPress={() => navigation.navigate('Photos', {name: 'Photos'})} style={styles.footer.bgImg.container.buttonStyle.button}>
+                            <Pressable onPress={() => navigation.navigate('Photos', user)} style={styles.footer.bgImg.container.buttonStyle.button}>
                                 <Image source={camera} style={styles.footer.bgImg.container.buttonStyle.img}/>
                             </Pressable>
                         </View>
                         <View style={styles.footer.bgImg.container.buttonStyle.body}>
-                            <Pressable onPress={() => navigation.navigate('Contact', {name: 'Contact'})} style={styles.footer.bgImg.container.buttonStyle.button}>
+                            <Pressable onPress={() => navigation.navigate('Contact', user)} style={styles.footer.bgImg.container.buttonStyle.button}>
                                 <Image source={phone} style={styles.footer.bgImg.container.buttonStyle.img}/>
                             </Pressable>
                         </View>
                         <View style={styles.footer.bgImg.container.buttonStyle.body}>
-                            <Pressable onPress={() => navigation.navigate('Assignments', {name: 'Assignments'})} style={styles.footer.bgImg.container.buttonStyle.button}>
+                            <Pressable onPress={() => navigation.navigate('Assignments', user)} style={styles.footer.bgImg.container.buttonStyle.button}>
                                 <Image source={assignments} style={styles.footer.bgImg.container.buttonStyle.img}/>
                             </Pressable>
                         </View>
@@ -157,14 +163,17 @@ const styles = StyleSheet.create({
                 width: '80%',
                 height: '10%',
                 backgroundColor: '#F57F20',
-                textAlign: 'center',
-                fontSize: 25,
-                paddingTop: '2.5%',
                 marginHorizontal: '10%',
                 marginTop: '5%',
                 marginBottom: '7.5%',
                 borderRadius: 5,
-                fontWeight: '600'
+                justifyContent: 'center',
+                alignItems: 'center',
+                text: {
+                    textAlign: 'center',
+                    fontSize: 25,
+                    fontWeight: '600',
+                },
                 // borderWidth: 3,
                 // borderColor: 'black'
             }

@@ -10,9 +10,11 @@ const HomeScreen = ({navigation}) => {
   useEffect(() => {
     const isLogged = async () => {
       const res = await fetch('https://mongo-api-y91g.onrender.com/deviceLogged', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ device: Device.osName }) });
-      const data = await res.json();
-      if (data.success) {
-        navigation.navigate('DashboardUnscuffed', { id: data.id });
+      const resJ = await res.json();
+      if (resJ.success) {
+        const result = await fetch(`https://mongo-api-y91g.onrender.com/user/${resJ.id}`);
+        const data = await result.json();
+        navigation.navigate('DashboardUnscuffed', {data});
       }
     }
     isLogged();

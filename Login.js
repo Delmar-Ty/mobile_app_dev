@@ -52,7 +52,9 @@ const LoginScreen = ({navigation}) => {
               if (!resJ.auth) {
                 alert(resJ.msg);
               } else {
-                navigation.navigate('DashboardUnscuffed', {id: resJ.id})
+                const result = await fetch(`https://mongo-api-y91g.onrender.com/user/${resJ.id}`);
+                const data = await result.json();
+                navigation.navigate('DashboardUnscuffed', {data});
               }
             }}>
                 <Text style={submitButton.text}>
